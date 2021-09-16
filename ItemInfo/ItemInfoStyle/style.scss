@@ -1,0 +1,83 @@
+body{
+    .breadcrumb{
+        padding: 20px;
+    }
+
+        .item-info-div{
+            padding: 10px 20px 10px 20px;
+            margin: 20px;
+            border: 2px solid rgba($color: rgb(179, 162, 162) , $alpha: .5);
+            .row{
+                .item-imgs{
+                    .row{
+                        .first-img-column{
+                            .row{
+                                .col{
+                                    padding: 0 2px 5px 2px;
+                                    .small-images{
+                                        padding: 0 2px 5px 0;
+                                    }
+                                }
+        
+                            }
+                        }
+        
+                        .second-img-column{
+                            padding: 0 2px 5px 2px;
+                            .large-images{
+                                padding: 0 5px 5px 0;
+                            }
+                        }
+                    }
+                }
+        
+                .details{
+                    .sizes{
+                        .btn-group{
+                            width: auto;
+                            display: inline-block;
+
+                            .btn-outline-primary{
+                                margin: 0 2px 0px 2px;
+                            }
+                        }
+                    }
+                    
+                    .qty-and-add-to-card{
+                        .qty{
+
+                            .fa{
+                                padding: 30px 0 10px 0;
+                                cursor: pointer;
+                            }
+    
+                            .count{
+                                width: 30px;
+                                padding: 0px 5px 0px 7px;
+                                margin: 27px 15px 15px 15px;
+                                font-size: 1.5em;
+                                border: 1px solid black;
+                            }
+                        }
+
+                        .add-to-cart{
+                            padding: 20px 10px 20px 10px;
+
+                            .btn-danger{
+                                padding: 10px;
+                                font-weight: 800;
+                                font-size: 1.5em;
+                                border-radius: 0.50em;
+                            }
+                        }
+
+                    }
+
+
+                }
+            }
+        }
+    
+
+}
+
