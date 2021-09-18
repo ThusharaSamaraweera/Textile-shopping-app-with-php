@@ -1,3 +1,8 @@
+<?php
+    require_once('./components/item-info.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,23 +30,36 @@
     </nav>
 
     <div class="contanier item-info-div card">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col col-12 col-sm-12 col-md-6 item-imgs">
                 <div class="row">
                     <div class="col col-3 first-img-column">
                         <div class="row">
                             <div class="col col-12">
-                                <img class="small-images img-fluid" src="./Image/ProductImages/1/1.1.webp" alt="image">
-                                <img class="small-images img-fluid" src="./Image/ProductImages/1/1.2.webp" alt="image">
-                                <img class="small-images img-fluid" src="./Image/ProductImages/1/1.3.webp" alt="image">
+                                <input type="image" class="small-images img-fluid" src="./Image/ProductImages/1/1.1.webp" alt="image" id='image1' style="width: auto;"
+                                    onclick="largeImage(id)"
+                                > 
+                                <input type="image" class="small-images img-fluid" src="./Image/ProductImages/1/1.2.webp" alt="image" id='image2' style="width: auto;"
+                                    onclick="largeImage(id)"
+                                > 
+                                <input type="image" class="small-images img-fluid" src="./Image/ProductImages/1/1.3.webp" alt="image" id='image3' style="width: auto;"
+                                    onclick="largeImage(id)"
+                                > 
                             </div>
                         </div>
                     </div>
 
                     <div class="col col-9 second-img-column">
-                        <img class="large-images img-fluid" src="../Asset/Image/ProductImages/1/1.1.webp" alt="image">
-
+                        <img class="large-images img-fluid" src="./Image/ProductImages/1/1.2.webp" alt="image" id="large-img">
                     </div>
+
+                    <script>
+                        function largeImage(id){
+                            let largeImage = document.getElementById('large-img');
+                            let smallImage = document.getElementById(id);
+                            largeImage.src = smallImage.src;
+                        }
+                    </script>
                 </div>
             </div>
 
@@ -85,7 +103,17 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
+        <?php
+            $imagesPaths = array("./Image/ProductImages/1/1.1.webp", 
+                "./Image/ProductImages/1/1.2.webp",
+                "./Image/ProductImages/1/1.3.webp");
+
+            $productName = "name";
+            $productPrice = "price";
+            $productDescription = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro facilis soluta voluptatem praesentium excepturi cumque ullam qui at reprehenderit. Quo maiores sit ab. Illum, similique accusantium ratione cum vero animi.";
+            item_info($imagesPaths, $productName, $productPrice, $productDescription);
+        ?>
     </div>
 
 
