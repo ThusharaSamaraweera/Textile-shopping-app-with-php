@@ -1,3 +1,7 @@
+body {
+  background-color: red;
+}
+
 body .breadcrumb {
   padding: 20px;
 }
@@ -31,6 +35,13 @@ body .item-info-div .row .details .sizes .btn-group {
 
 body .item-info-div .row .details .sizes .btn-group .btn-outline-primary {
   margin: 0 2px 0px 2px;
+  border-color: orange;
+  color: orange;
+}
+
+body .item-info-div .row .details .sizes .btn-group .btn-outline-primary:hover {
+  background-color: orange;
+  color: black;
 }
 
 body .item-info-div .row .details .qty-and-add-to-card .qty .fa {
@@ -38,12 +49,11 @@ body .item-info-div .row .details .qty-and-add-to-card .qty .fa {
   cursor: pointer;
 }
 
-body .item-info-div .row .details .qty-and-add-to-card .qty .count {
-  width: 30px;
-  padding: 0px 5px 0px 7px;
-  margin: 27px 15px 15px 15px;
-  font-size: 1.5em;
-  border: 1px solid black;
+body .item-info-div .row .details .qty-and-add-to-card .qty .qtyInput {
+  width: 31px;
+  padding: 0px 3px 0px 5px;
+  margin: 0px 3px 0px 4px;
+  font-size: 2em;
 }
 
 body .item-info-div .row .details .qty-and-add-to-card .add-to-cart {
@@ -51,8 +61,8 @@ body .item-info-div .row .details .qty-and-add-to-card .add-to-cart {
 }
 
 body .item-info-div .row .details .qty-and-add-to-card .add-to-cart .btn-danger {
-  padding: 8px;
-  font-weight: 800;
+  padding: 5px;
+  font-weight: 700;
   font-size: 1.5em;
   border-radius: 0.50em;
 }

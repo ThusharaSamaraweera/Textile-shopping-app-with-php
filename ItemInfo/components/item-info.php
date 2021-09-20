@@ -1,6 +1,6 @@
 <?php
 
-function item_info($imagesPaths, $productName, $productPrice, $productDescription){
+function item_info($productName, $productPrice, $productDescription){
     $element = "
         <div class=\"row\">
             <div class=\"col col-12 col-sm-12 col-md-6 item-imgs\">
@@ -24,14 +24,6 @@ function item_info($imagesPaths, $productName, $productPrice, $productDescriptio
                     <div class=\"col col-9 second-img-column\">
                         <img class=\"large-images img-fluid\" src=\"$imagesPaths[0]\" alt=\"image\" id=\"large-img\">
                     </div>
-
-                    <script>
-                        function largeImage(id){
-                            let largeImage = document.getElementById('large-img');
-                            let smallImage = document.getElementById(id);
-                            largeImage.src = smallImage.src;
-                        }
-                    </script>
                 </div>
             </div>
 
@@ -50,27 +42,38 @@ function item_info($imagesPaths, $productName, $productPrice, $productDescriptio
                 <div class=\"row sizes\">
                     <h6>size</h6>
                     <div class=\"btn-group\" role=\"group\" aria-label=\"Basic radio toggle button group\">
-                        <input type=\"radio\" class=\"btn-check\" name=\"btnradio\" id=\"btnradio1\" autocomplete=\"off\" checked>
-                        <label class=\"btn btn-outline-primary\" for=\"btnradio1\">S</label>
+                        <input type=\"radio\" class=\"btn-check\" name=\"btnradio\" id=\"btnradio1\" 
+                                value=\"S\" autocomplete=\"off\">
+                        <label class=\"btn btn-outline-primary\" for=\"btnradio1\" id=\"radio1\" >S</label>
 
-                        <input type=\"radio\" class=\"btn-check\" name=\"btnradio\" id=\"btnradio2\" autocomplete=\"off\">
-                        <label class=\"btn btn-outline-primary\" for=\"btnradio2\">M</label>
+                        <input type=\"radio\" class=\"btn-check\" name=\"btnradio\" id=\"btnradio2\"
+                                value=\"M\" autocomplete=\"off\">
+                        <label class=\"btn btn-outline-primary\" for=\"btnradio2\" >M</label>
 
-                        <input type=\"radio\" class=\"btn-check\" name=\"btnradio\" id=\"btnradio3\" autocomplete=\"off\">
-                        <label class=\"btn btn-outline-primary\" for=\"btnradio3\">XL</label>
+                        <input type=\"radio\" class=\"btn-check\" name=\"btnradio\" id=\"btnradio3\" 
+                                value=\"L\" autocomplete=\"off\">
+                        <label class=\"btn btn-outline-primary\" for=\"btnradio3\">L</label>
                     </div>
                 </div>
 
 
                 <div class=\"row qty-and-add-to-card\">
                     <div class=\"col col-xs-6 col-sm-4 qty\">
-                        <i class=\"fa fa-minus-circle\" style=\"font-size: 30px;\" aria-hidden=\"true\"></i>
-                        <label class=\"count\"> 1 </label>
-                        <i class=\"fa fa-plus-circle\" style=\"font-size: 30px;\" aria-hidden=\"true\"></i>
+                        <i type=\"button\" class=\"fa fa-minus-circle\" style=\"font-size: 30px;\" aria-hidden=\"true\"
+                            onclick=\"increaseQty()\"
+                        ></i>
+                        
+                        <input class=\"qtyInput\" id=\"qtyInput\" type=\"number\" value=\"1\" min=\"1\" >
+                        
+                        <i type=\"button\" class=\"fa fa-plus-circle\" style=\"font-size: 30px;\" aria-hidden=\"true\"
+                            onClick=\"discreaseQty()\"
+                        ></i>
                     </div>
                     
                     <div class=\"col col-xs col-sm add-to-cart\">
-                        <button type=\"button\" class=\"btn btn-danger\">ADD TO CART</button>   
+                        <button type=\"button\" class=\"btn btn-danger\"
+                            onClick=\"addToCard()\"
+                        >ADD TO CART</button>   
                     </div>
                 </div>
             </div>
