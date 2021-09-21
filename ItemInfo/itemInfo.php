@@ -1,6 +1,6 @@
 <?php
-    require_once('./components/item-info.php');
-    require_once('./db_connection.php');
+    require('./components/item-info.php');
+    require('./db_connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +21,16 @@
 
     <title>Document</title>
 </head>
-<body>
+<body>    
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Item</li>
         </ol>
     </nav>
+
+
 
     <div class="contanier item-info-div card">
         <?php
@@ -39,20 +42,24 @@
             // $productPrice = "price";
             // $productDescription = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro facilis soluta voluptatem praesentium excepturi cumque ullam qui at reprehenderit. Quo maiores sit ab. Illum, similique accusantium ratione cum vero animi.";
 
-            $sql = "SELECT name, category, description, price, img_path1, img_path2, img_path3";
-            $result = $link->query($sql);
-
-
-            while($row = $result->fetch_array()){
-                item_info($imagesPaths, $productName, $productPrice, $productDescription);
+            $sql = "SELECT name, category, description, price, qty_s, qty_m, qty_l, img_path1, img_path2, img_path3, tags FROM item_details WHERE id='2'";
+            if($result = $link->query($sql)){
+                $row = $result->fetch_array();
+                $tags = unserialize($row['tags']);
+                item_info($row['name'], $row['category'], $row['description'], $row['price'], $row['qty_s'], 
+                        $row['qty_m'], $row['qty_l'], $row['img_path1'], $row['img_path2'], $row['img_path3'],
+                        $tags    );
+            }else{
+                echo 'error';
             }
+
+
         ?>
     </div>
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script src="./js/function.js"></script>
+    <script src="./js/function.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

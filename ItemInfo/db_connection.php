@@ -16,4 +16,27 @@
     //     echo "error";
     // }
 
+    // $tags = array('category1', 'category2', 'category3');
+
+    // $serializeTags = serialize($tags);
+
+    // $sql = "UPDATE item_details SET tags='$serializeTags' WHERE id=2";
+    // $result = $link->query($sql);
+    // if($result){
+    //     echo "successfull";
+    // }else{
+    //     echo "error";
+    // }
+
+
+    // $sql = "select tags, name from item_details where id=2";
+    // $result = $link->query($sql);
+    // if($result){
+    //     $row = $result->fetch_array();
+    //     $tags_unserialize = unserialize($row['tags']);
+    //     echo $tags_unserialize[1];
+    // }else{
+    //     echo "error";
+    // }
+    
 ?>

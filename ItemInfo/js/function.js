@@ -1,4 +1,5 @@
 
+
 function largeImage(id){
     let largeImage = document.getElementById('large-img');
     let smallImage = document.getElementById(id);
@@ -7,6 +8,7 @@ function largeImage(id){
 
 function increaseQty(){
     document.getElementById('qtyInput').stepDown();
+
 }
 
 function discreaseQty(){
@@ -17,4 +19,5 @@ function addToCard(){
     const radioBtn = document.querySelector('input[name = "btnradio"]:checked').value;
 
     const qty = document.getElementById('qtyInput').value;
+    console.log(radioBtn, qty);
 };
