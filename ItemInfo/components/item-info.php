@@ -98,12 +98,12 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     </div>
                 </div>
                 
-                </div class=\"row tags\" >
+                <div class=\"row tags\" >
                     <h6>Tags</h6>
                     <span class=\"badge rounded-pill bg-primary\">$tags[0]</span>
                     <span class=\"badge rounded-pill bg-primary\">$tags[1]</span>
                     <span class=\"badge rounded-pill bg-primary\">$tags[2]</span>
-                <div>
+                </div>
             </div>
 
         </div>

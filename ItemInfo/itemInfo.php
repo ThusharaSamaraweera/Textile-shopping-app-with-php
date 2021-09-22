@@ -34,14 +34,8 @@
 
     <div class="contanier item-info-div card">
         <?php
-            // $imagesPaths = array("./Image/ProductImages/1/1.1.webp", 
-            //     "./Image/ProductImages/1/1.2.webp",
-            //     "./Image/ProductImages/1/1.3.webp");
 
-            // $productName = "name";
-            // $productPrice = "price";
-            // $productDescription = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro facilis soluta voluptatem praesentium excepturi cumque ullam qui at reprehenderit. Quo maiores sit ab. Illum, similique accusantium ratione cum vero animi.";
-
+            // item info function
             $sql = "SELECT name, category, description, price, qty_s, qty_m, qty_l, img_path1, img_path2, img_path3, tags FROM item_details WHERE id='2'";
             if($result = $link->query($sql)){
                 $row = $result->fetch_array();
@@ -55,7 +49,62 @@
 
 
         ?>
+
+
     </div>
+
+
+    <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+    </div>
+
+    <section   section class="shop-services section home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Start Single Service -->
+                        <div class="single-service">
+                            <i class="ti-rocket"></i>
+                            <h4>Free shiping</h4>
+                            <p>Orders over $100</p>
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Start Single Service -->
+                        <div class="single-service">
+                            <i class="ti-reload"></i>
+                            <h4>Free Return</h4>
+                            <p>Within 30 days returns</p>
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Start Single Service -->
+                        <div class="single-service">
+                            <i class="ti-lock"></i>
+                            <h4>Sucure Payment</h4>
+                            <p>100% secure payment</p>
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Start Single Service -->
+                        <div class="single-service">
+                            <i class="ti-tag"></i>
+                            <h4>Best Peice</h4>
+                            <p>Guaranteed price</p>
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                </div>
+            </div>
+    </section>
 
 
 
