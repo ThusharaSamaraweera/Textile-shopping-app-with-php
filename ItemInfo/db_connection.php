@@ -2,7 +2,9 @@
     $host = "localhost:3308";
     $user = "root";
     $pwd1 = "1234";
-    $db = "shop";
+    // $db = "shop";
+
+    $db = "textile_shop";
 
     $link = new mysqli($host, $user, $pwd1, $db);
 
@@ -16,6 +18,8 @@
     //     echo "error";
     // }
 
+
+    
     // $tags = array('category1', 'category2', 'category3');
 
     // $serializeTags = serialize($tags);
@@ -38,5 +42,18 @@
     // }else{
     //     echo "error";
     // }
+
+    
+    $qty[] = array("s_qty"=>"200", "m_qty"=>"100", "l_qty"=>"50");
+
+    $serializeQty = serialize($qty);
+
+    $sql = "UPDATE item_details SET qty='$serializeQty' WHERE item_id=1";
+    $result = $link->query($sql);
+    if($result){
+        echo "successfull";
+    }else{
+        echo "error";
+    }
     
 ?>

@@ -23,47 +23,65 @@
 </head>
 <body>    
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Item</li>
-        </ol>
-    </nav>
+    <div class="contanier">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Item</li>
+            </ol>
+        </nav>
+    </div>
 
+    <div class="contanier">
+        <div class="item-info-div card">
+            <?php
 
-
-    <div class="contanier item-info-div card">
-        <?php
-
-            // item info function
-            $sql = "SELECT name, category, description, price, qty_s, qty_m, qty_l, img_path1, img_path2, img_path3, tags FROM item_details WHERE id='2'";
-            if($result = $link->query($sql)){
-                $row = $result->fetch_array();
-                $tags = unserialize($row['tags']);
-                item_info($row['name'], $row['category'], $row['description'], $row['price'], $row['qty_s'], 
-                        $row['qty_m'], $row['qty_l'], $row['img_path1'], $row['img_path2'], $row['img_path3'],
-                        $tags    );
-            }else{
-                echo 'error';
-            }
-
-
-        ?>
-
+                // item info function
+                $sql = "SELECT name, category, description, price, qty_s, qty_m, qty_l, img_path1, img_path2, img_path3, tags FROM item_details WHERE id='2'";
+                if($result = $link->query($sql)){
+                    $row = $result->fetch_array();
+                    $tags = unserialize($row['tags']);
+                    item_info($row['name'], $row['category'], $row['description'], $row['price'], $row['qty_s'], 
+                            $row['qty_m'], $row['qty_l'], $row['img_path1'], $row['img_path2'], $row['img_path3'],
+                            $tags    );
+                }else{
+                    echo 'error';
+                }
+            ?>
+        </div>
 
     </div>
 
 
-    <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+    <div class="row related-products px-5 d-flex">
+        <h3>Related Products</h3>
+        <div class="col col-xs-4 col-sm-3 card">
+                <img src="./Image/ProductImages/1/1.1.webp" class="card-img-top" alt="image">
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h4 class="card-text">T-shirt</h4>
+                    <h2 class="price">Rs. 122.00</h2>
                 </div>
-            </div>
+        </div>
+
+        <div class="col col-xs-4 col-sm-3 card">
+                <img src="./Image/ProductImages/1/1.1.webp" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h4 class="card-text">T-shirt</h4>
+                    <h2 class="price">Rs. 122.00</h2>
+                </div>
+        </div>
+
+        <div class="col col-xs-4 col-sm-3 card">
+                <img src="./Image/ProductImages/1/1.1.webp" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h4 class="card-text">T-shirt</h4>
+                    <h2 class="price">Rs. 122.00</h2>
+                </div>
+        </div>
+
     </div>
 
-    <section   section class="shop-services section home">
+    <section  section class="row shop-services section home">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-12">

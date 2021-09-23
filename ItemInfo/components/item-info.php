@@ -2,6 +2,7 @@
 
 function item_info($productName, $productCateogory, $productDescription, $productPrice,$qtyS, $qtyM, $qtyL, $imgPath1, $imgPath2, $imgPath3, $tags){
     $element = "
+
         <div class=\"row\">
             <div class=\"col col-12 col-sm-12 col-md-6 item-imgs\">
                 <div class=\"row\">
@@ -26,7 +27,7 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     </div>
                 </div>
             </div>
-
+            <
             <div class=\"col col-sm col-md details\">
                 <div class=\"row title\">
                     <h3><b>$productName</b></h3>
@@ -107,6 +108,8 @@ function item_info($productName, $productCateogory, $productDescription, $produc
             </div>
 
         </div>
+
+  
     ";
     echo $element;
 }

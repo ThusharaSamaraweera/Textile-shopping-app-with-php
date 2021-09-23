@@ -3,8 +3,8 @@ body .breadcrumb {
 }
 
 body .item-info-div {
+  margin: 30px;
   padding: 10px 20px 10px 20px;
-  margin: 20px;
   border: 2px solid rgba(179, 162, 162, 0.5);
 }
 
@@ -113,5 +113,41 @@ body .shop-services .single-service p {
   color: #898989;
   line-height: 28px;
   font-size: 14px;
+}
+
+body .related-products h3 {
+  text-align: center;
+  font-weight: 600;
+}
+
+body .related-products .card {
+  padding: 15px;
+  width: 18rem;
+  margin: 5px;
+}
+
+body .related-products .card .card-body {
+  padding: 1rem 0;
+}
+
+body .related-products .card .card-body .card-text {
+  color: orange;
+}
+
+@media only screen and (max-width: 768px) {
+  .related-products .card {
+    width: 10rem;
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .related-products .card {
+    margin: 5px;
+    padding: 5px;
+  }
+  .related-products .card .card-body .card-text {
+    font-size: 1em;
+  }
 }
 /*# sourceMappingURL=style.css.map */

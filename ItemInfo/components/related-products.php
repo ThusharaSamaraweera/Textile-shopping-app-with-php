@@ -1,5 +1,7 @@
 <?php
-    function related_product()
+    function related_product(){
+        
+    }
 
 
 ?>
