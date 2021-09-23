@@ -55,6 +55,23 @@
 						<p>Please register in order to checkout more quickly</p>
 						<!-- Form -->
 						<form class="form" method="post" action="#">
+
+							<div class="row radio-btn">
+								<div class="col col-xs-12 col-sm-4 form-check">
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<label class="form-check-label" for="flexRadioDefault1">
+										Same as user address
+									</label>
+								</div>
+
+								<div class="col col-xs-12 col-sm-4 form-check">
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+									<label class="form-check-label" for="flexRadioDefault2">
+										Change shipping address
+									</label>
+								</div>
+							</div>
+					
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
@@ -364,20 +381,6 @@
 										<input type="text" name="post" placeholder="" required="required">
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<label>Company<span>*</span></label>
-										<select name="company_name" id="company">
-											<option value="company" selected="selected">Microsoft</option>
-											<option>Apple</option>
-											<option>Xaiomi</option>
-											<option>Huawer</option>
-											<option>Wpthemesgrid</option>
-											<option>Samsung</option>
-											<option>Motorola</option>
-										</select>
-									</div>
-								</div>
 							</div>
 						</form>
 						<!--/ End Form -->
@@ -402,9 +405,9 @@
 							<h2>Payments</h2>
 							<div class="content">
 								<div class="checkbox">
-									<label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label>
-									<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Cash On Delivery</label>
-									<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox"> PayPal</label>
+									<label class="checkbox-inline" for="1"><input name="updates" id="1" type="radio"> Check Payments</label>
+									<label class="checkbox-inline" for="2"><input name="news" id="2" type="radio"> Cash On Delivery</label>
+									<label class="checkbox-inline" for="3"><input name="news" id="3" type="radio"> PayPal</label>
 								</div>
 							</div>
 						</div>
