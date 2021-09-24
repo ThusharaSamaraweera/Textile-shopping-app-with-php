@@ -46,7 +46,7 @@ function payment($items, $shipping_percent){
         $total = $total + ($items[$i][4]*$items[$i][5]);
     }
     $shipping_fee = ($total*$shipping_percent)/100;
-    $payment_ammount = $total - $shipping_fee;
+    $payment_ammount = $total + $shipping_fee;
     echo $payment_ammount;
 }
 
