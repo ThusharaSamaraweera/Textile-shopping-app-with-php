@@ -4,7 +4,7 @@ body{
     }
 
     .item-info-div{
-        margin: 30px;
+        margin: 2vw;
         padding: 10px 20px 10px 20px;
         border: 2px solid rgba($color: rgb(179, 162, 162) , $alpha: .5);
         
@@ -53,11 +53,12 @@ body{
                 }
                 
                 .qty-and-add-to-card{
-                    .qty{
 
+                    padding: 19px 2px;
+                    .qty{
                         .fa{
-                            padding: 30px 0 10px 0;
                             cursor: pointer;
+                            font-size: 2em;
                         }
 
                         .qtyInput {
@@ -74,14 +75,23 @@ body{
                     }
 
                     .add-to-cart{
-                        padding: 20px 10px 20px 10px;
 
                         .btn-danger {
                             padding: 6px;
                             font-weight: 700;
                             font-size: 1.5em;
-                            border-radius: 0.50em;
+                            border-radius: 0.20em;
+                            color: e6dbdb;
+                            background-color: rgb(226, 197, 159);
+                            border-color: rgb(226, 197, 159);
+                            
+                            &:hover{
+                                background-color: rgb(218, 165, 51);
+                            }
+                       
                         }
+
+
                     }
 
                 }
@@ -91,7 +101,8 @@ body{
                         padding: 5px 4px;
                         width: 7em;
                         font-size: 1em;
-                        margin: 4px;                 
+                        margin: 4px;    
+                        background-color: rgb(218, 165, 51) !important;             
                     }
                 }
             }
@@ -159,27 +170,84 @@ body{
 }
 
 @media only screen and (max-width:768px) {
-    .related-products{
-        .card{
-            width: 10rem;
-            margin: 3px;
+    body{
+        .item-info-div{
+            .row{
+                .details{
+                    .qty-and-add-to-card{
+                        .add-to-cart{
+                            .btn-danger{
+                                font-size: 1em;
+                            }
+                        }
+
+                        .qty{
+                            .fa{
+                                font-size: 2.2em;
+                            }
+
+                            .qtyInput{
+                                width: 31px;
+                                font-size: 2em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .related-products{
+            .card{
+                width: 10rem;
+                margin: 3px;
+            }
         }
     }
+
+
 
 }
 
 
 @media only screen and (max-width:576px) {
-    .related-products{
-        .card{
-            margin: 5px;
-            padding: 5px;
-            .card-body{
-                .card-text{
-                    font-size: 1em;
+
+    body{
+        .item-info-div{
+            .row{
+                .details{
+                    .qty-and-add-to-card{
+                        .qty{
+                            .fa{
+                                font-size: 1.2em;
+                            }
+
+                            .qtyInput{
+                                width: 22px;
+                                font-size: 1em;
+                            }
+                        }
+                        .add-to-cart{
+                            .btn-danger{
+                                font-size: 0.6em;
+                            }
+                        }
+                    }
                 }
             }
         }
 
+
+        .related-products{
+            .card{
+                margin: 5px;
+                padding: 5px;
+                .card-body{
+                    .card-text{
+                    }
+                }
+            }
+    
+        }
     }
+
 }

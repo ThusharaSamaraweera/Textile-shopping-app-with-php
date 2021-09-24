@@ -27,10 +27,10 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     </div>
                 </div>
             </div>
-            <
+            
             <div class=\"col col-sm col-md details\">
                 <div class=\"row title\">
-                    <h3><b>$productName</b></h3>
+                    <h2><b>$productName</b></h2>
                 </div>
                 <div class=\"row price\">
                     <h4>Rs. $productPrice</h4>
@@ -81,13 +81,13 @@ function item_info($productName, $productCateogory, $productDescription, $produc
 
                 <div class=\"row qty-and-add-to-card\">
                     <div class=\"col col-xs-6 col-sm-4 qty\">
-                        <i type=\"button\" class=\"fa fa-minus-circle\" style=\"font-size: 30px;\" aria-hidden=\"true\"
+                        <i type=\"button\" class=\"fa fa-minus-circle\" aria-hidden=\"true\"
                             onclick=\"increaseQty()\"
                         ></i>
                         
                         <input class=\"qtyInput\" id=\"qtyInput\" type=\"number\" value=\"1\" min=\"1\" max=\"10\" >
                         
-                        <i type=\"button\" class=\"fa fa-plus-circle\" style=\"font-size: 30px;\" aria-hidden=\"true\"
+                        <i type=\"button\" class=\"fa fa-plus-circle\" aria-hidden=\"true\"
                             onClick=\"discreaseQty()\"
                         ></i>
                     </div>

@@ -2,7 +2,7 @@
     $host = "localhost:3308";
     $user = "root";
     $pwd1 = "1234";
-    $db = "shop";
+    // $db = "shop";
 
     $db = "textile_shop";
 
@@ -44,11 +44,23 @@
     // }
 
     
-    // $qty[] = array("s_qty"=>"200", "m_qty"=>"100", "l_qty"=>"50");
+    // $qty[] = array("s_qty"=>"100", "m_qty"=>"100", "l_qty"=>"50");
 
     // $serializeQty = serialize($qty);
 
-    // $sql = "UPDATE item_details SET qty='$serializeQty' WHERE item_id=1";
+    // $sql = "UPDATE item_details SET qty='$serializeQty' WHERE item_id=4";
+    // $result = $link->query($sql);
+    // if($result){
+    //     echo "successfull";
+    // }else{
+    //     echo "error";
+    // }
+
+    // $qty[] = array("s_price"=>"1100.00", "m_price"=>"1400", "l_price"=>"1550");
+
+    // $serializePrice = serialize($qty);
+
+    // $sql = "UPDATE item_details SET price='$serializePrice' WHERE item_id=4";
     // $result = $link->query($sql);
     // if($result){
     //     echo "successfull";

@@ -3,7 +3,7 @@ body .breadcrumb {
 }
 
 body .item-info-div {
-  margin: 30px;
+  margin: 2vw;
   padding: 10px 20px 10px 20px;
   border: 2px solid rgba(179, 162, 162, 0.5);
 }
@@ -42,9 +42,13 @@ body .item-info-div .row .details .sizes .btn-group .btn-outline-primary:hover {
   color: black;
 }
 
+body .item-info-div .row .details .qty-and-add-to-card {
+  padding: 19px 2px;
+}
+
 body .item-info-div .row .details .qty-and-add-to-card .qty .fa {
-  padding: 30px 0 10px 0;
   cursor: pointer;
+  font-size: 2em;
 }
 
 body .item-info-div .row .details .qty-and-add-to-card .qty .qtyInput {
@@ -58,15 +62,18 @@ body .item-info-div .row .details .qty-and-add-to-card .qty .qtyInput::-webkit-i
   -webkit-appearance: none;
 }
 
-body .item-info-div .row .details .qty-and-add-to-card .add-to-cart {
-  padding: 20px 10px 20px 10px;
-}
-
 body .item-info-div .row .details .qty-and-add-to-card .add-to-cart .btn-danger {
   padding: 6px;
   font-weight: 700;
   font-size: 1.5em;
-  border-radius: 0.50em;
+  border-radius: 0.20em;
+  color: e6dbdb;
+  background-color: #e2c59f;
+  border-color: #e2c59f;
+}
+
+body .item-info-div .row .details .qty-and-add-to-card .add-to-cart .btn-danger:hover {
+  background-color: #daa533;
 }
 
 body .item-info-div .row .details .tags .bg-primary {
@@ -74,6 +81,7 @@ body .item-info-div .row .details .tags .bg-primary {
   width: 7em;
   font-size: 1em;
   margin: 4px;
+  background-color: #daa533 !important;
 }
 
 body .shop-services {
@@ -135,19 +143,36 @@ body .related-products .card .card-body .card-text {
 }
 
 @media only screen and (max-width: 768px) {
-  .related-products .card {
+  body .item-info-div .row .details .qty-and-add-to-card .add-to-cart .btn-danger {
+    font-size: 1em;
+  }
+  body .item-info-div .row .details .qty-and-add-to-card .qty .fa {
+    font-size: 2.2em;
+  }
+  body .item-info-div .row .details .qty-and-add-to-card .qty .qtyInput {
+    width: 31px;
+    font-size: 2em;
+  }
+  body .related-products .card {
     width: 10rem;
     margin: 3px;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .related-products .card {
+  body .item-info-div .row .details .qty-and-add-to-card .qty .fa {
+    font-size: 1.2em;
+  }
+  body .item-info-div .row .details .qty-and-add-to-card .qty .qtyInput {
+    width: 22px;
+    font-size: 1em;
+  }
+  body .item-info-div .row .details .qty-and-add-to-card .add-to-cart .btn-danger {
+    font-size: 0.6em;
+  }
+  body .related-products .card {
     margin: 5px;
     padding: 5px;
-  }
-  .related-products .card .card-body .card-text {
-    font-size: 1em;
   }
 }
 /*# sourceMappingURL=style.css.map */

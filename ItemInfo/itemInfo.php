@@ -1,6 +1,15 @@
 <?php
     require('./components/item-info.php');
+    require('./components/relatedProduct.php');
     require('./db_connection.php');
+
+
+    array = array([
+        array([item-id, qty, size, unit, name])
+        array([item-id, qty, size])
+        array([item-id, qty, size])
+    ])
+
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +24,11 @@
 
     <!-- customize style -->
     <link rel="stylesheet" href="./ItemInfoStyle/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./ItemInfoStyle/product.css?v=<?php echo time(); ?>">
 
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/190828a61a.js" crossorigin="anonymous"></script>
+
 
     <title>Document</title>
 </head>
@@ -52,34 +63,17 @@
 
     </div>
 
+    <div class="row mx-3">
+        <?php
+            related_product();
+            related_product();
+            related_product();
+            related_product();
+            related_product();
 
-    <div class="row related-products px-5 d-flex">
-        <h3>Related Products</h3>
-        <div class="col col-xs-4 col-sm-3 card">
-                <img src="./Image/ProductImages/1/1.1.webp" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h4 class="card-text">T-shirt</h4>
-                    <h2 class="price">Rs. 122.00</h2>
-                </div>
-        </div>
-
-        <div class="col col-xs-4 col-sm-3 card">
-                <img src="./Image/ProductImages/1/1.1.webp" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h4 class="card-text">T-shirt</h4>
-                    <h2 class="price">Rs. 122.00</h2>
-                </div>
-        </div>
-
-        <div class="col col-xs-4 col-sm-3 card">
-                <img src="./Image/ProductImages/1/1.1.webp" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h4 class="card-text">T-shirt</h4>
-                    <h2 class="price">Rs. 122.00</h2>
-                </div>
-        </div>
-
+        ?>   
     </div>
+
 
     <section  section class="row shop-services section home">
             <div class="container">

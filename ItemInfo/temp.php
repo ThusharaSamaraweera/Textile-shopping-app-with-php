@@ -8,5 +8,10 @@
 </head>
 <body>
     <div>home</div>
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
 </body>
 </html>
