@@ -3,13 +3,6 @@
     require('./components/relatedProduct.php');
     require('./db_connection.php');
 
-
-    array = array([
-        array([item-id, qty, size, unit, name])
-        array([item-id, qty, size])
-        array([item-id, qty, size])
-    ])
-
 ?>
 
 <!DOCTYPE html>

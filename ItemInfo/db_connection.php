@@ -2,9 +2,9 @@
     $host = "localhost:3308";
     $user = "root";
     $pwd1 = "1234";
-    // $db = "shop";
+    $db = "shop";
 
-    $db = "textile_shop";
+    // $db = "textile_shop";
 
     $link = new mysqli($host, $user, $pwd1, $db);
 
