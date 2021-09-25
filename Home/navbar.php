@@ -2,7 +2,7 @@
 session_start();
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
     
     <!--toggle button-->
@@ -34,11 +34,14 @@ session_start();
         }else{
             $user = $_SESSION['user_name'];
             ?>
-           <li class="nav-item">
-            <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-person-circle mx-1"></i><?php echo $user;?></b></a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-cart-plus mx-1"></i>Cart</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-person-circle mx-1"></i><?php echo $user;?></b></a>
+            </li>
             <li class="nav-item" id=logout>
-              <a class="nav-link px-4 text-warning" href="logout.php"><b><i class="bi bi-box-arrow-left mx-1"></i>Log-out</b></a>
+                <a class="nav-link px-4 text-warning" href="logout.php"><b><i class="bi bi-box-arrow-left mx-1"></i>Log-out</b></a>
             </li>
             <?php
         }
