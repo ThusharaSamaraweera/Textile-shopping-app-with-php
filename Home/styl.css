@@ -22,11 +22,17 @@
     max-width:660px;
 }
 
-.mx-auto{
+.colletion-topic{
+    text-align: left;
+    font-size: 2em;
+    margin: 1em;
+}
+
+.item-div{
     position: relative;
 }
 
-.btn-warning{
+.item-div .card-body .btn-warning{
     position: absolute;
     bottom: 1em;
     right: 4.6rem;
@@ -36,7 +42,15 @@
 
 
 
-
+@media screen and (max-width:1200px){
+    
+}
+@media screen and (max-width:992px){
+    
+}
+@media screen and (max-width:768px){
+    
+}
 
 
 @media screen and (max-width:576px){
@@ -50,12 +64,4 @@
     
     
 }
-@media screen and (max-width:768px){
-    
-}
-@media screen and (max-width:992px){
-    
-}
-@media screen and (max-width:1200px){
-    
-}
+
