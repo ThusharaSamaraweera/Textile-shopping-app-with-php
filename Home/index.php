@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" href="img/logo.png" />
+    <link rel="shortcut icon" href="./Image/logo.png" />
     <title>Kingsmen Textile</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
