@@ -98,7 +98,7 @@
             <!-- 1st collectin -->
             <div class="row my-5 align-items-center justify-content-center">
 
-                <h1 class="colletion-topic">Men Top Wear</h1>
+                <h1 class="colletion-topic">Men Casual Shrits</h1>
                 <?php 
                 
                 // getting product from db
@@ -111,14 +111,14 @@
                     $mediumPrice = $prices[0]['m'];
                 ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 pb-2">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
 
                         <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
                             <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
                             <div class="card-body text-center">
                                 <h5 class="card-title "><?php echo $row['name']; ?></h5>
                                 <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                <a href="#" class="btn btn-warning">Buy Now</a>
+                                <a href="#" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
                             </div>
                         </div>
 
@@ -145,7 +145,7 @@
                         $mediumPrice = $prices[0]['m'];
                     ?>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 pb-2">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
 
                             <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
                                 <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">

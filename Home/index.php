@@ -1,19 +1,5 @@
 <?php
-$ladies_collections = [
-    ['Frocks', 'img/frock.jpg'],
-    ['Ladies T-shirts', 'img/LTshirt.jpg'],
-    ['Sarees', 'img/saree.jpg'],
-    ['Jumpsuits', 'img/jumpsuit.jpeg'],
-    ['Crop Tops', 'img/croptop.jpg']
-];
-
-$gens_collections = [
-    ['Casual Shrits', 'img/shirt-c.jpg'],
-    ['Casual Trousers', 'img/trouser.jpg'],
-    ['Formal Shirts', 'img/shirt-f.jpg'],
-    ['Formal Trousers', 'img/trouser-f.jpg'],
-    ['Short Trousers', 'img/short.jpg']
-];
+    include('./collectiontype.php');
 ?>
 
 <!DOCTYPE html>
