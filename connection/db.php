@@ -1,11 +1,19 @@
 <?php
 
-$host	=	"localhost";
-$user	=	"root";
-$passwd	=	"";
-$db		=	"shop";
-$port	=	"3308";
+// ragul
+// $host	=	"localhost";
+// $user	=	"root";
+// $passwd	=	"";
+// $db		=	"shop";
+// $port	=	"3308";
 
-$link = new MySQLi($host, $user, $passwd, $db, $port);
+// for thushara
+$host	=	"localhost:3308";
+$user	=	"root";
+$passwd	=	"1234";
+$db		=	"textile_shop";
+// $port	=	"3308";
+
+$link = new MySQLi($host, $user, $passwd, $db);
 
 ?>
