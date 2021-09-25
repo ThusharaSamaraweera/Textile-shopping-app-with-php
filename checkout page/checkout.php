@@ -1,3 +1,11 @@
+<?php
+
+	$id = 1;
+	require_once('./db.php');
+	// include('./function.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -56,31 +64,57 @@
 
 							<div class="row radio-btn">
 								<div class="col col-xs-12 col-sm-4 form-check">
-									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
+										value="same" id="flexRadioDefault1"  checked onclick="same()">
 									<label class="form-check-label" for="flexRadioDefault1">
 										Same as user address
 									</label>
 								</div>
 
 								<div class="col col-xs-12 col-sm-4 form-check">
-									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
+									 id="flexRadioDefault2" value="change" onclick="change()">
 									<label class="form-check-label" for="flexRadioDefault2">
 										Change shipping address
 									</label>
 								</div>
 							</div>
-					
+
+							<script>
+
+								function same(){
+									<?php
+										$getCustomerDetailssql1 = "SELECT first_name, last_name, email FROM customer WHERE id=$id";
+										$resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
+										$customerDetails1 = $resultCustomerDetails1->fetch_array();
+									
+
+									?>
+									console.log('hi');
+									document.getElementById('first-name').value = "<?php echo $customerDetails1['first_name']; ?>";
+									document.getElementById('last-name').value = "<?php echo $customerDetails1['last_name']; ?>";
+									
+								}
+										
+								function change(){
+									document.getElementById('first-name').value = " ";
+									document.getElementById('last-name').value = " ";
+									
+
+								}
+							</script>
+
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>First Name<span>*</span></label>
-										<input type="text" name="name" placeholder="" required="required">
+										<input type="text" name="name" placeholder="" id="first-name" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Last Name<span>*</span></label>
-										<input type="text" name="name" placeholder="" required="required">
+										<input type="text" name="name" placeholder="" id="last-name" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
@@ -163,7 +197,7 @@
 						<!-- Button Widget -->
 						<div class="single-widget get-button">
 							<div class="content">
-								<div class="button">
+								<div class="button" onclick="submitForm()">
 									<a href="#" class="btn">proceed to checkout</a>
 								</div>
 							</div>
@@ -175,5 +209,6 @@
 		</div>
 	</section>
 
+	<script type="text/javascript" src="./function.js" ></script>
 </body>
 </html>
