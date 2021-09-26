@@ -117,6 +117,12 @@
 									document.getElementById('first-name').value = " ";
 									document.getElementById('last-name').value = " ";
 									document.getElementById('email').value = " ";
+									document.getElementById('country').value = " ";
+									document.getElementById('phone-number').value = " ";
+									document.getElementById('state').value = " ";
+									document.getElementById('address1').value = " ";
+									document.getElementById('address2').value = " ";
+									document.getElementById('postel_code').value = " ";
 									
 
 								}
