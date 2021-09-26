@@ -1,0 +1,71 @@
+#bannerImage{
+    padding-top:75px;
+    padding-bottom:50px;
+    margin-bottom: 0px;
+    text-align:center;
+    color: rgba(236, 236, 48, 0.897);
+    background:url(Image/HomePage/bg.jpeg);
+    background-size:cover;
+}
+
+#bannerImage h4{
+    margin-bottom: 40px;
+}
+
+#bannerContent{
+    position:relative;
+    padding-top:6%;
+    padding-bottom:6%;
+    margin-top:12%;
+    margin-bottom:12%;
+    background-color:rgba(0,0,0,0.7);
+    max-width:660px;
+}
+
+.colletion-topic{
+    text-align: left;
+    font-size: 2em;
+    margin: 1em;
+}
+
+.item-div{
+    position: relative;
+}
+
+.item-div .card-body .btn-warning{
+    position: absolute;
+    bottom: 1em;
+    right: 4.6rem;
+}
+
+.bi-cart4{
+    font-size: 1.2em;
+}
+
+
+@media screen and (max-width:992px){
+    
+}
+@media screen and (max-width:768px){
+    
+}
+
+
+@media screen and (max-width:576px){
+    .cat{
+        width: 18rem;
+        align-content: center;
+    }
+    #brand_name{
+        font-size: 20px;
+    }
+
+    .colletion-topic{
+        text-align: left;
+        font-size: 1.5em;
+        margin: 1em;
+    }
+    
+    
+}
+
