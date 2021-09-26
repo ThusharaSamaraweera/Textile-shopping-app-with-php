@@ -2,7 +2,6 @@
 
 	$id = 1;
 	require_once('./db.php');
-	// include('./function.php');
 
 	$subTot = 330.00;
 	$shipping = $subTot*5/100;
@@ -85,11 +84,11 @@
 							</div>
 
 							<script>
-
+								// functions for radio button
 								function same(){
+									let same = true;
 									<?php
-										
-										// getCustomerDetails();
+
 										$getCustomerDetailssql1 = "SELECT first_name, last_name, email FROM customer WHERE id=$id";
 										$resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
 										$customerDetails1 = $resultCustomerDetails1->fetch_array();
@@ -100,7 +99,6 @@
 
 
 									?>
-									console.log('hi');
 									document.getElementById('first-name').value = "<?php echo $customerDetails1['first_name']; ?>";
 									document.getElementById('last-name').value = "<?php echo $customerDetails1['last_name']; ?>";
 									document.getElementById('email').value = "<?php echo $customerDetails1['email']; ?>";
@@ -114,6 +112,7 @@
 								}
 										
 								function change(){
+									same = false;
 									document.getElementById('first-name').value = " ";
 									document.getElementById('last-name').value = " ";
 									document.getElementById('email').value = " ";
@@ -123,8 +122,7 @@
 									document.getElementById('address1').value = " ";
 									document.getElementById('address2').value = " ";
 									document.getElementById('postel_code').value = " ";
-									
-
+								
 								}
 							</script>
 
