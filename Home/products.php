@@ -102,7 +102,7 @@
                 <?php 
                 
                 // getting product from db
-                $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='Men Top Wear'";
+                $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='Men Top Wear' or category='CASUAL SHIRTS' ";
                 $result = $link->query($getProductsSql);
 
                 while ($row = $result->fetch_array()) { 
@@ -123,7 +123,7 @@
                         </div>
 
                     </div>
-
+                    <!-- <img src="./images/Products/Men/CASUAL SHIRTS/1/1.1.webp"> -->
                 <?php 
                 } 
                 ?>
