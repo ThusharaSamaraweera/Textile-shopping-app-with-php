@@ -4,6 +4,10 @@
 	require_once('./db.php');
 	// include('./function.php');
 
+	$subTot = 330.00;
+	$shipping = $subTot*5/100;
+	$tot = $subTot + $shipping;
+
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +69,7 @@
 							<div class="row radio-btn">
 								<div class="col col-xs-12 col-sm-4 form-check">
 									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
-										value="same" id="flexRadioDefault1"  checked onclick="same()">
+										 id="flexRadioDefault1" onclick="same()">
 									<label class="form-check-label" for="flexRadioDefault1">
 										Same as user address
 									</label>
@@ -73,7 +77,7 @@
 
 								<div class="col col-xs-12 col-sm-4 form-check">
 									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
-									 id="flexRadioDefault2" value="change" onclick="change()">
+									 id="flexRadioDefault2" value="change" onclick="change()" checked>
 									<label class="form-check-label" for="flexRadioDefault2">
 										Change shipping address
 									</label>
@@ -84,21 +88,35 @@
 
 								function same(){
 									<?php
+										
+										// getCustomerDetails();
 										$getCustomerDetailssql1 = "SELECT first_name, last_name, email FROM customer WHERE id=$id";
 										$resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
 										$customerDetails1 = $resultCustomerDetails1->fetch_array();
-									
+
+										$getCustomerDetailssql2 = "SELECT phone_num, country, country, state, address_line_1, address_line_2, postel_code FROM customer_details WHERE id=$id";
+										$resultCustomerDetails2 = $link->query($getCustomerDetailssql2);
+										$customerDetails2 = $resultCustomerDetails2->fetch_array();
+
 
 									?>
 									console.log('hi');
 									document.getElementById('first-name').value = "<?php echo $customerDetails1['first_name']; ?>";
 									document.getElementById('last-name').value = "<?php echo $customerDetails1['last_name']; ?>";
-									
+									document.getElementById('email').value = "<?php echo $customerDetails1['email']; ?>";
+									document.getElementById('country').value = "<?php echo $customerDetails2['country']; ?>";
+									document.getElementById('phone-number').value = "<?php echo $customerDetails2['phone_num']; ?>";
+									document.getElementById('state').value = "<?php echo $customerDetails2['state']; ?>";
+									document.getElementById('address1').value = "<?php echo $customerDetails2['address_line_1']; ?>";
+									document.getElementById('address2').value = "<?php echo $customerDetails2['address_line_2']; ?>";
+									document.getElementById('postel_code').value = "<?php echo $customerDetails2['postel_code']; ?>";
+
 								}
 										
 								function change(){
 									document.getElementById('first-name').value = " ";
 									document.getElementById('last-name').value = " ";
+									document.getElementById('email').value = " ";
 									
 
 								}
@@ -120,13 +138,13 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Email Address<span>*</span></label>
-										<input type="email" name="email" placeholder="" required="required">
+										<input type="email" name="email" placeholder="" id="email" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Phone Number<span>*</span></label>
-										<input type="number" name="number" placeholder="" required="required">
+										<input type="number" name="number" placeholder="" id="phone-number" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
@@ -144,27 +162,27 @@
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
-										<label>State / Divition<span>*</span></label>
-										<input type="text" name="address" placeholder="" required="required">
+										<label>State / Divition / Provice<span>*</span></label>
+										<input type="text" name="address" placeholder="" id="state" required="required">
 
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Address Line 1<span>*</span></label>
-										<input type="text" name="address" placeholder="" required="required">
+										<input type="text" name="address" placeholder="" id="address1" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Address Line 2<span>*</span></label>
-										<input type="text" name="address" placeholder="" required="required">
+										<input type="text" name="address" placeholder="" id="address2" required="required">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Postal Code<span>*</span></label>
-										<input type="text" name="post" placeholder="" required="required">
+										<input type="text" name="post" placeholder="" id="postel_code"  required="required">
 									</div>
 								</div>
 							</div>
@@ -179,9 +197,9 @@
 							<h2>CART  TOTALS</h2>
 							<div class="content">
 								<ul>
-									<li>Sub Total<span>$330.00</span></li>
-									<li>(+) Shipping<span>$10.00</span></li>
-									<li class="last">Total<span>$340.00</span></li>
+									<li>Sub Total<span>$ <?php echo $subTot ?></span></li>
+									<li>(+) Shipping<span>$ <?php echo $shipping ?></span></li>
+									<li class="last">Total<span>$ <?php echo $tot ?></span></li>
 								</ul>
 							</div>
 						</div>

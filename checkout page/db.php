@@ -18,7 +18,4 @@
     //     echo "error";
     // }
 
-    // $id = 1;
-
-    // echo $firstName;
 ?>
