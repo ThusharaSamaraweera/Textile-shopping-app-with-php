@@ -1,6 +1,13 @@
 <?php
 
-function item_info($productName, $productCateogory, $productDescription, $productPrice,$qtyS, $qtyM, $qtyL, $imgPath1, $imgPath2, $imgPath3, $tags){
+function item_info($productName, $productCateogory, $productDescription, $productPrice,$qty, $imgPath1, $imgPath2, $imgPath3){
+    $mediumPrice = $productPrice[0]['m'];
+    $qtyS = $qty[0]['s'];
+    $qtyM = $qty[0]['m'];
+    $qtyL = $qty[0]['l'];
+
+    $tags = array('tag1', 'tag2', 'tag3');
+
     $element = "
 
         <div class=\"row\">
@@ -33,7 +40,7 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     <h2><b>$productName</b></h2>
                 </div>
                 <div class=\"row price\">
-                    <h4>Rs. $productPrice</h4>
+                    <h4>Rs. $mediumPrice</h4>
                 </div>
 
                 <div class=\"row paragraph\">

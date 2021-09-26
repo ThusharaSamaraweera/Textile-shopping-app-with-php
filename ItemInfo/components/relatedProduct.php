@@ -1,15 +1,14 @@
-
-
 <?php
-    function related_product(){
+    function related_product($ProductID){
+     
 
         $element = "
             <div class=\"col col-lg-3 col-md-3 col-sm-3 col-xs-4\">
                 <div class=\"single-product\">
                     <div class=\"product-img\">
                         <a href=\"product-details.html\">
-                            <img class=\"default-img\" src=\"./Image/ProductImages/1/1.1.webp\" alt=\"#\">
-                            <img class=\"hover-img\" src=\"./Image/ProductImages/1/1.1.webp\" alt=\"#\">
+                            <img class=\"default-img\" src=\"./Image/ProductImages/1/1.1.jpg\" alt=\"#\">
+                            <img class=\"hover-img\" src=\"./Image/ProductImages/1/1.1.jpg\" alt=\"#\">
                         </a>
                         <div class=\"button-head\">
                             <div class=\"product-action-2\">

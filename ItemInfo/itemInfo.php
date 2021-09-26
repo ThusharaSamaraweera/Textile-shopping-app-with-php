@@ -3,6 +3,8 @@
     require('./components/relatedProduct.php');
     require('./db_connection.php');
 
+    $id = 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +42,17 @@
         <div class="item-info-div card">
             <?php
 
-                // item info function
-                $sql = "SELECT name, category, description, price, qty_s, qty_m, qty_l, img_path1, img_path2, img_path3, tags FROM item_details WHERE id='2'";
+                // sql for getting item which has selected id
+                $sql = "SELECT name, category, description, price, qty, img1, img2, img3 FROM item_details WHERE item_id=$id";
+
                 if($result = $link->query($sql)){
                     $row = $result->fetch_array();
-                    $tags = unserialize($row['tags']);
-                    item_info($row['name'], $row['category'], $row['description'], $row['price'], $row['qty_s'], 
-                            $row['qty_m'], $row['qty_l'], $row['img_path1'], $row['img_path2'], $row['img_path3'],
-                            $tags    );
+
+                    $prices = unserialize($row['price']);
+                    $qty = unserialize($row['qty']);
+                    item_info($row['name'], $row['category'], $row['description'], $prices, $qty, $row['img1'], $row['img2'], $row['img3']);
+
+                    $currectCategory = $row['category'];
                 }else{
                     echo 'error';
                 }
@@ -58,6 +63,8 @@
 
     <div class="row mx-3">
         <?php
+
+            $getRelatedProducts = "SELECT item_id FROM item_details WHERE category=$currectCategory ORDER BY RAND() LIMIT 5";
             related_product();
             related_product();
             related_product();
