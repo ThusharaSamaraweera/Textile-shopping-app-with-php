@@ -1,5 +1,6 @@
 <?php
     include('./collectiontype.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 
     
     <!-- External CSS -->
-    <link rel="stylesheet" href="styl.css" type="text/css">
+    <link rel="stylesheet" href="styl.css?v=<?php echo time(); ?>" type="text/css">
     <!--icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--fonts-->
@@ -60,7 +61,7 @@
 
                 <?php foreach ($ladies_collections as $collection) { ?>
 
-                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 pb-2 cat">
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-3 pb-2 cat">
 
                         <div class="card mx-auto d-block img-fluid" style="height: 100%; width:100%;">
                             <img src=<?php echo $collection[1]; ?> class="card-img-top" alt="...">
@@ -91,21 +92,37 @@
 
             <div class="row my-5 align-items-center justify-content-center">
 
-                <?php foreach ($gens_collections as $collection) { ?>
+                <?php 
+                    // get categoriese of gentelmen
+                    $categoriesOfGentelmenSQL = "SELECT DISTINCT category FROM item_details";
+                    $resultCategoriesOfGentelmen = $link->query($categoriesOfGentelmenSQL);
 
-                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 pb-2">
+                    while($gentelmanCategory = $resultCategoriesOfGentelmen->fetch_array()){
+                        $category = $gentelmanCategory['category'];
 
-                        <div class="card mx-auto d-block img-fluid" style="height:100%; width:100%;">
-                            <img src=<?php echo $collection[1]; ?> class="card-img-top" alt="...">
+                        // get randomly img of category 
+                        $categoryImgSQL = "SELECT img1 FROM item_details WHERE category='$category' ORDER by rand() LIMIT 1";
+                        $resultCategoryImg = $link->query($categoryImgSQL);
+                            $categoryImg = $resultCategoryImg->fetch_array();
+                       
+                        
+                ?>
+
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-3 pb-2 cat">
+
+                        <div class="card mx-auto d-block img-fluid " style="height: 100%; width:100%;">
+                            <img src=<?php echo $categoryImg['img1']; ?> class="card-img-top" alt="image">
                             <div class="card-body text-center">
-                                <h5 class="card-title "><?php echo $collection[0]; ?></h5>
+                                <h5 class="card-title "><?php echo $gentelmanCategory['category']; ?></h5>
                                 <a href="#" class="btn btn-warning mt-2">Buy Now</a>
                             </div>
                         </div>
 
                     </div>
 
-                <?php } ?>
+                <?php 
+                    } 
+                ?>
 
             </div>
 

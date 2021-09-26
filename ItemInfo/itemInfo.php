@@ -1,8 +1,11 @@
 <?php
     require('./components/item-info.php');
     require('./components/relatedProduct.php');
-    require('./db_connection.php');
+    include('./connection/db.php');
 
+    // if(isset($_REQUEST['id'])){
+    //     $id = $_REQUEST['id'];
+    // }
     $id = 1;
 
 ?>
@@ -65,11 +68,14 @@
         <?php
 
             $getRelatedProducts = "SELECT item_id FROM item_details WHERE category=$currectCategory ORDER BY RAND() LIMIT 5";
-            related_product();
-            related_product();
-            related_product();
-            related_product();
-            related_product();
+            $result = $link->query($getRelatedProducts);
+            $product = $result->fetch_array();
+            var_dump($product);
+            // related_product();
+            // related_product();
+            // related_product();
+            // related_product();
+            // related_product();
 
         ?>   
     </div>
