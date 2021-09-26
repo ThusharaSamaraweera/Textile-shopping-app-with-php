@@ -48,7 +48,7 @@
         <!--banner ended-->
 
         <!--collection header-->
-        <div class=" bg-light bg-gradient pt-5 pb-2" style="width: 100%;">
+        <div class=" bg-light bg-gradient pt-5 pb-2 collection-header" style="width: 100%;">
             <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>L A I D I E S' &nbsp &nbsp C O L L E C T I O N</b></h3>
             <h4 class="text-warning text-center" style="font-family:'Carattere', sans-serif !important;">Ladies Dresses Collection From World's Best Brands...</h4>
         </div>
@@ -81,7 +81,7 @@
         <!--Ladies collection category ends-->
 
         <!--collection header-->
-        <div class=" bg-light bg-gradient pt-5 pb-2" style="width: 100%;">
+        <div class=" bg-light bg-gradient pt-5 pb-2 collection-header" style="width: 100%;">
             <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>G E N T E L M E N &nbsp &nbsp C O L L E C T I O N</b></h3>
             <h4 class="text-warning text-center" style="font-family:'Carattere', sans-serif !important;">Men's Suits Collection From World's Best Brands...</h4>
         </div>

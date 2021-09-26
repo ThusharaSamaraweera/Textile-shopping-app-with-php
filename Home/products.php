@@ -62,8 +62,23 @@
         
         <!--Buttons-->
         <div class="container-fluid mt-5">
+
+            <div class="row text-center" style="margin: 4em 0;">
+                <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>G E N T E L M E N &nbsp &nbsp C O L L E C T I O N</b></h3>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL SHIRTS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL TROUSERS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL TROUSERS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">SHORT</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">JEANS</button>
+                </div>
+
+            </div>
+
             <div class="row text-center">
                 <div class="col">
+                <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>L A I D I E S' &nbsp &nbsp C O L L E C T I O N</b></h3>
                     <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
                     <button type="button" class="btn btn-outline-dark mb-1">FORMAL SHIRTS</button>
                     <button type="button" class="btn btn-outline-dark mb-1">CASUAL TROUSERS</button>
@@ -94,114 +109,44 @@
 
             ?>
 
-            <!-- CASUAL SHIRTS collectin -->
-            <div class="row my-5 align-items-center justify-content-center">
 
-                <h1 class="colletion-topic"><?php echo $category ?></h1>
-                <?php 
-                
-                // getting product from db
-                $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='$category' ";
-                $result = $link->query($getProductsSql);
+                    <div class="row my-5 align-items-center justify-content-center">
 
-                while ($row = $result->fetch_array()) { 
-                    
-                    $prices = unserialize($row['price']);
-                    $mediumPrice = $prices[0]['m'];
-                ?>
-
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
-
-                        <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
-                            <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
-                            <div class="card-body text-center">
-                                <h5 class="card-title "><?php echo $row['name']; ?></h5>
-                                <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                <a href="./../ItemInfo/itemInfo.php?id=<?php echo $row['item_id']?>" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
-                            </div>
-                        </div>
-
-                    </div>
-                <?php 
-                } 
-                ?>
-            </div>
-
-            <?php
-
-            }
-
-            ?>
-
-            <!-- <div class="row my-5 align-items-center justify-content-center">
-
-                <h1 class="colletion-topic">Men Casual Shrits</h1>
-                <?php 
-
-                // getting product from db
-                $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='CASUAL SHIRTS' ";
-                $result = $link->query($getProductsSql);
-
-                while ($row = $result->fetch_array()) { 
-                    
-                    $prices = unserialize($row['price']);
-                    $mediumPrice = $prices[0]['m'];
-                ?>
-
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
-
-                        <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
-                            <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
-                            <div class="card-body text-center">
-                                <h5 class="card-title "><?php echo $row['name']; ?></h5>
-                                <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                <a href="./../ItemInfo/itemInfo.php?id=<?php echo $row['item_id']?>" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
-                            </div>
-                        </div>
-
-                    </div>
-                <?php 
-                } 
-                ?>
-                </div>
-
-            <!--2st collection-->
-            <div class="row my-5 align-items-center justify-content-center">
-
-                    <h1 class="colletion-topic">Women BLOUSES & SHIRTS</h1>
-
-                    <?php 
-                    // getting product from db
-                    $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='Women BLOUSES & SHIRTS'";
-                    $result = $link->query($getProductsSql);
-
-                    while ($row = $result->fetch_array()) { 
+                        <h1 class="colletion-topic"><?php echo $category ?></h1>
+                        <?php 
                         
-                        $prices = unserialize($row['price']);
-                        $mediumPrice = $prices[0]['m'];
-                    ?>
+                        // getting item from db
+                        $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='$category' ";
+                        $result = $link->query($getProductsSql);
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
+                        while ($row = $result->fetch_array()) { 
+                            
+                            $prices = unserialize($row['price']);
+                            $mediumPrice = $prices[0]['m'];
+                        ?>
 
-                            <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
-                                <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title "><?php echo $row['name']; ?></h5>
-                                    <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                    <a href="#" class="btn btn-warning">Buy Now</a>
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
+
+                                <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
+                                    <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title "><?php echo $row['name']; ?></h5>
+                                        <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
+                                        <a href="./../ItemInfo/itemInfo.php?id=<?php echo $row['item_id']?>" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
+                                    </div>
                                 </div>
+
                             </div>
+                        <?php 
+                        } 
+                        ?>
+                    </div>
 
-                        </div>
+                <?php
 
-                    <?php 
+                }
 
-                    } 
-
-                    ?>
-
-                </div>
-            </div> -->
+                ?>
 
         <!-- collection ends-->
 

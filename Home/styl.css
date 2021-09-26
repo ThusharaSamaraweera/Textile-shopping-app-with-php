@@ -24,6 +24,10 @@
     max-width:660px;
 }
 
+.collection-header .text-warning b{
+    font-size: 1.5em;
+}
+
 .card{
     height: 20em;
 }
@@ -37,7 +41,9 @@
 }
 
 /*product page */
-
+.row .text-warning b{
+    font-size: 1.5em;
+}
 
 .colletion-topic{
     text-align: left;
@@ -78,13 +84,19 @@
     }
 }
 @media screen and (max-width:768px){
-
+    /* product page */
+    .row .text-warning b{
+        font-size: 1em;
+    }
 }
 
 
 @media screen and (max-width:576px){
 
     /*home page */
+    .collection-header .text-warning b{
+        font-size: 1em;
+    }
 
     .card .card-body .card-title{
         font-size: .8em;
@@ -107,7 +119,11 @@
         font-size: 1.5em;
         margin: 1em;
     }
-    
-    
+
+
+        /* product page */
+        .row .text-warning b{
+            font-size: .8em;
+        }
 }
 
