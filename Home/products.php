@@ -28,7 +28,7 @@
     <div>
         <?php
         include("../Header/header.php");
-        include("navbar.php");
+        include("../Home/navbar.php");
         ?>
 
         <!--slider-->

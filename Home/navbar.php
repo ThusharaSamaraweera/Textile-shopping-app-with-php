@@ -14,10 +14,10 @@ session_start();
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link px-4 text-warning" href="index.php"><b><i class="bi bi-house mx-1"></i>Home</b></a>
+          <a class="nav-link px-4 text-warning" href="../Home/index.php"><b><i class="bi bi-house mx-1"></i>Home</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-4 text-warning" href="products.php"><b><i class="bi bi-bag mx-1"></i>Products</b></a>
+          <a class="nav-link px-4 text-warning" href="../Home/products.php"><b><i class="bi bi-bag mx-1"></i>Products</b></a>
         </li>
         <?php
         include("../connection/db.php");

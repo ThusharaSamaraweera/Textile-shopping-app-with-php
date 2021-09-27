@@ -1,12 +1,14 @@
 <?php
     require('./components/item-info.php');
     require('./components/relatedProduct.php');
-    include('./connection/db.php');
+    require('../connection/db.php');
 
-    // if(isset($_REQUEST['id'])){
-    //     $id = $_REQUEST['id'];
-    // }
-    $id = 1;
+
+
+    if(isset($_REQUEST['id'])){
+        $id = $_REQUEST['id'];
+    }
+    // $id = 1;
 
 ?>
 
@@ -32,19 +34,24 @@
 </head>
 <body>    
 
-    <div class="contanier">
+    <!-- <div class="contanier">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Item</li>
             </ol>
         </nav>
-    </div>
+    </div> -->
+    <?php
+        include("../Header/header.php");
+        include("../Home/navbar.php");  
+    ?>
+ 
 
     <div class="contanier">
         <div class="item-info-div card">
+            <script src="./js/function.js?v=<?php echo time(); ?>"></script>
             <?php
-
                 // sql for getting item which has selected id
                 $sql = "SELECT name, category, description, price, qty, img1, img2, img3 FROM item_details WHERE item_id=$id";
 
@@ -56,6 +63,7 @@
                     item_info($row['name'], $row['category'], $row['description'], $prices, $qty, $row['img1'], $row['img2'], $row['img3']);
 
                     $currectCategory = $row['category'];
+                    echo $currectCategory;
                 }else{
                     echo 'error';
                 }
@@ -67,15 +75,18 @@
     <div class="row mx-3">
         <?php
 
-            $getRelatedProducts = "SELECT item_id FROM item_details WHERE category=$currectCategory ORDER BY RAND() LIMIT 5";
-            $result = $link->query($getRelatedProducts);
-            $product = $result->fetch_array();
-            var_dump($product);
-            // related_product();
-            // related_product();
-            // related_product();
-            // related_product();
-            // related_product();
+            $getRelatedProducts = "SELECT item_id FROM item_details WHERE category='$currectCategory' ORDER BY RAND() LIMIT 4";
+            if($result = $link->query($getRelatedProducts)){
+                
+                while($product = $result->fetch_array()){
+                    related_product($product['item_id']);
+                    
+                }
+
+            }else{
+                echo "error";
+            }
+
 
         ?>   
     </div>
@@ -125,8 +136,8 @@
     </section>
 
 
-
+    <?php include('../Home/footer.php')?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./js/function.js?v=<?php echo time(); ?>"></script>
+    
 </body>
 </html>

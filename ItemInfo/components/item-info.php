@@ -5,9 +5,7 @@ function item_info($productName, $productCateogory, $productDescription, $produc
     $qtyS = $qty[0]['s'];
     $qtyM = $qty[0]['m'];
     $qtyL = $qty[0]['l'];
-
     $tags = array('tag1', 'tag2', 'tag3');
-
     $element = "
 
         <div class=\"row\">
@@ -16,13 +14,13 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     <div class=\"col col-3 first-img-column\">
                         <div class=\"row\">
                             <div class=\"col col-12\">
-                                <input type=\"image\" class=\"small-images img-fluid\" src=\"$imgPath1\" alt=\"image\" id=\'image1\' style=\"width: auto;\"
+                                <input type=\"image\" class=\"small-images img-fluid\" src=\"../Home$imgPath1\" alt=\"image\" id=\'image1\' style=\"width: auto;\"
                                     onmouseover=\"largeImage(id)\"
                                 > 
-                                <input type=\"image\" class=\"small-images img-fluid\" src=\"$imgPath2\" alt=\"image\" id=\'image2\' style=\"width: auto;\"
+                                <input type=\"image\" class=\"small-images img-fluid\" src=\"../Home$imgPath2\" alt=\"image\" id=\'image2\' style=\"width: auto;\"
                                     onmouseover=\"largeImage(id)\"
                                 > 
-                                <input type=\"image\" class=\"small-images img-fluid\" src=\"$imgPath3\" alt=\"image\" id=\'image3\' style=\"width: auto;\"
+                                <input type=\"image\" class=\"small-images img-fluid\" src=\"../Home$imgPath3\" alt=\"image\" id=\'image3\' style=\"width: auto;\"
                                     onmouseover=\"largeImage(id)\"
                                 > 
                             </div>
@@ -30,7 +28,7 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     </div>
 
                     <div class=\"col col-9 second-img-column\">
-                        <img class=\"large-images img-fluid\" src=\"$imgPath1\" alt=\"image\" id=\"large-img\">
+                        <img class=\"large-images img-fluid\" src=\"../Home$imgPath1\" alt=\"image\" id=\"large-img\">
                     </div>
                 </div>
             </div>
