@@ -1,6 +1,6 @@
 <?php
     require('./components/cart-info.php');
-    require('./database_connector.php');
+    // require('./database_connector.php');
 
     $shipping_percent = 5;
 
@@ -80,7 +80,7 @@
     <div class="shopping-cart section">
         <div class="container">
             <div class="row">
-            <section>
+            <!-- <section> -->
                 <div class="col-12">
                     <!-- Shopping Summery -->
                     <table class="table shopping-summery">
@@ -106,7 +106,7 @@
                     </table>
                     <!--/ End Shopping Summery -->
                 </div>
-            <section>    
+            <!-- <section>     -->
             </div>
 
             <div class="row">

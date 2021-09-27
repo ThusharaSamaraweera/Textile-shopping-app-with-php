@@ -12,10 +12,30 @@ function cart_rows($image_path, $item_name, $size, $unit_prize, $quantity){
         <td class=\"product-des\" data-title=\"Description\">
             <p class=\"product-name\"><a href=\"#\">$item_name</a></p>
         </td>
+
         <td class=\"size\" data-title=\"Size\"><span>$size</span></td>
-        <td class=\"price\" data-title=\"Price\"><span>$unit_prize</span></td>
-        <td class=\"input-number\" data-min=\"1\" data-max=\"100\" data-title=\"Quantity\"><span>$quantity</span></td>
+
+        <td class=\"price\" data-title=\"Price\">
+            <span>$unit_prize</span>
+        </td>
+
+        <td class=\"input-number\" data-min=\"1\" data-max=\"100\" data-title=\"Quantity\">
+            <div class=\"qty\">
+                <i type=\"button\" class=\"fa fa-minus-circle\" aria-hidden=\"true\"
+                    onclick=\"increaseQty()\"
+                ></i>
+                
+                <input class=\"qtyInput\" id=\"qtyInput\" type=\"number\" value=\"1\" min=\"1\" max=\"10\" >
+                
+                <i type=\"button\" class=\"fa fa-plus-circle\" aria-hidden=\"true\"
+                    onClick=\"discreaseQty()\"
+                ></i>
+            </div>
+
+        </td>
+
         <td class=\"total-amount\" data-title=\"Total\"><span>Rs..$item_total</span></td>
+        
         <td class=\"action\" data-title=\"Remove\"><a href=\"#\"><i class=\"ti-trash remove-icon\"></i></a></td>
     </tr>
     ";
