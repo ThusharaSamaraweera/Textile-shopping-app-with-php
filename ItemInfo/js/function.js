@@ -17,4 +17,6 @@ function addToCard(){
 
     const qty = document.getElementById('qtyInput').value;
     console.log(radioBtn, qty);
+    
+
 };

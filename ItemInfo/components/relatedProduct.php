@@ -1,7 +1,7 @@
 <?php
 
     function related_product($ProductID){
-        require('../../connection/db.php');
+        // require('../../connection/db.php');
 
         // get name, img path , price 
         // include("./connection/db.php");
