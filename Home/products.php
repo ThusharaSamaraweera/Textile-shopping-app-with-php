@@ -2,18 +2,6 @@
     
 	include ("../connection/db.php");
 
-    $Frocks = [
-        ['High Neck Maxi', 'products/Frocks/1.jpg','Rs. 3000'],
-        ['Wrap Neck Maxi', 'products/Frocks/2.jpg','Rs. 2,975'],
-        ['V-Cut Neck Mini', 'products/Frocks/3.jpg','Rs. 2,450'],
-        ['V-Cut Neck Maxi', 'products/Frocks/4.jpg','Rs. 3,250'],
-        ['Bell Sleeve Midi', 'products/Frocks/5.jpg','Rs. 2,700'],
-        ['One-Sholder Midi', 'products/Frocks/6.jpg','Rs. 2,260']
-    ];
-
-
-
-
     $category = array('Men Top Wear', 'Women BLOUSES & SHIRTS');
 
 ?>
@@ -40,7 +28,7 @@
     <div>
         <?php
         include("../Header/header.php");
-        include("navbar.php");
+        include("../Home/navbar.php");
         ?>
 
         <!--slider-->
@@ -74,11 +62,26 @@
         
         <!--Buttons-->
         <div class="container-fluid mt-5">
+
+            <div class="row text-center" style="margin: 4em 0;">
+                <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>G E N T E L M E N &nbsp &nbsp C O L L E C T I O N</b></h3>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL SHIRTS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL TROUSERS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL TROUSERS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">SHORT</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">JEANS</button>
+                </div>
+
+            </div>
+
             <div class="row text-center">
                 <div class="col">
-                    <button type="button" class="btn btn-outline-dark mb-1">Frocks</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Ladies T-Shirts</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Sarees</button>
+                <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>L A I D I E S' &nbsp &nbsp C O L L E C T I O N</b></h3>
+                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL SHIRTS</button>
+                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL TROUSERS</button>
                     <button type="button" class="btn btn-outline-dark mb-1">Jumpsuits</button>
                     <button type="button" class="btn btn-outline-dark mb-1">Croptops</button>
                     <button type="button" class="btn btn-outline-dark mb-1">Casual Shirts</button>
@@ -95,77 +98,55 @@
         <!--collection starts-->
         <div class="container">
 
-            <!-- 1st collectin -->
-            <div class="row my-5 align-items-center justify-content-center">
-
-                <h1 class="colletion-topic">Men Casual Shrits</h1>
-                <?php 
+            <?php
+                // get gentelmen categories
+                $categoriesOfGentelmenSQL = "SELECT DISTINCT category FROM item_details";
+                $resultCategoriesOfGentelmen = $link->query($categoriesOfGentelmenSQL);
                 
-                // getting product from db
-                $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='Men Top Wear' or category='CASUAL SHIRTS' ";
-                $result = $link->query($getProductsSql);
+                
+                while($gentelmanCategory = $resultCategoriesOfGentelmen->fetch_array()){
+                    $category = $gentelmanCategory['category'];
 
-                while ($row = $result->fetch_array()) { 
-                    
-                    $prices = unserialize($row['price']);
-                    $mediumPrice = $prices[0]['m'];
-                ?>
+            ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
 
-                        <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
-                            <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
-                            <div class="card-body text-center">
-                                <h5 class="card-title "><?php echo $row['name']; ?></h5>
-                                <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                <a href="#" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
-                            </div>
-                        </div>
+                    <div class="row my-5 align-items-center justify-content-center">
 
-                    </div>
-                    <!-- <img src="./images/Products/Men/CASUAL SHIRTS/1/1.1.webp"> -->
-                <?php 
-                } 
-                ?>
-            </div>
-
-            <!--2st collection-->
-            <div class="row my-5 align-items-center justify-content-center">
-
-                    <h1 class="colletion-topic">Women BLOUSES & SHIRTS</h1>
-
-                    <?php 
-                    // getting product from db
-                    $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='Women BLOUSES & SHIRTS'";
-                    $result = $link->query($getProductsSql);
-
-                    while ($row = $result->fetch_array()) { 
+                        <h1 class="colletion-topic"><?php echo $category ?></h1>
+                        <?php 
                         
-                        $prices = unserialize($row['price']);
-                        $mediumPrice = $prices[0]['m'];
-                    ?>
+                        // getting item from db
+                        $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='$category' ";
+                        $result = $link->query($getProductsSql);
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
+                        while ($row = $result->fetch_array()) { 
+                            
+                            $prices = unserialize($row['price']);
+                            $mediumPrice = $prices[0]['m'];
+                        ?>
 
-                            <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
-                                <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title "><?php echo $row['name']; ?></h5>
-                                    <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                    <a href="#" class="btn btn-warning">Buy Now</a>
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">
+
+                                <div class="card mx-auto d-block img-fluid item-div" style="height: 30rem; width:15rem;">
+                                    <img src=<?php echo $row['img1']; ?> class="card-img-top" alt="img">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title "><?php echo $row['name']; ?></h5>
+                                        <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
+                                        <a href="./../ItemInfo/itemInfo.php?id=<?php echo $row['item_id']?>" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
+                                    </div>
                                 </div>
+
                             </div>
+                        <?php 
+                        } 
+                        ?>
+                    </div>
 
-                        </div>
+                <?php
 
-                    <?php 
+                }
 
-                    } 
-
-                    ?>
-
-                </div>
-            </div>
+                ?>
 
         <!-- collection ends-->
 

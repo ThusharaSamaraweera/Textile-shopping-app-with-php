@@ -1,5 +1,6 @@
 <?php
     include('./collectiontype.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 
     
     <!-- External CSS -->
-    <link rel="stylesheet" href="styl.css" type="text/css">
+    <link rel="stylesheet" href="styl.css?v=<?php echo time(); ?>" type="text/css">
     <!--icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--fonts-->
@@ -47,7 +48,7 @@
         <!--banner ended-->
 
         <!--collection header-->
-        <div class=" bg-light bg-gradient pt-5 pb-2" style="width: 100%;">
+        <div class=" bg-light bg-gradient pt-5 pb-2 collection-header" style="width: 100%;">
             <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>L A I D I E S' &nbsp &nbsp C O L L E C T I O N</b></h3>
             <h4 class="text-warning text-center" style="font-family:'Carattere', sans-serif !important;">Ladies Dresses Collection From World's Best Brands...</h4>
         </div>
@@ -60,7 +61,7 @@
 
                 <?php foreach ($ladies_collections as $collection) { ?>
 
-                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 pb-2 cat">
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-3 pb-2 cat">
 
                         <div class="card mx-auto d-block img-fluid" style="height: 100%; width:100%;">
                             <img src=<?php echo $collection[1]; ?> class="card-img-top" alt="...">
@@ -80,7 +81,7 @@
         <!--Ladies collection category ends-->
 
         <!--collection header-->
-        <div class=" bg-light bg-gradient pt-5 pb-2" style="width: 100%;">
+        <div class=" bg-light bg-gradient pt-5 pb-2 collection-header" style="width: 100%;">
             <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>G E N T E L M E N &nbsp &nbsp C O L L E C T I O N</b></h3>
             <h4 class="text-warning text-center" style="font-family:'Carattere', sans-serif !important;">Men's Suits Collection From World's Best Brands...</h4>
         </div>
@@ -91,21 +92,37 @@
 
             <div class="row my-5 align-items-center justify-content-center">
 
-                <?php foreach ($gens_collections as $collection) { ?>
+                <?php 
+                    // get categoriese of gentelmen
+                    $categoriesOfGentelmenSQL = "SELECT DISTINCT category FROM item_details";
+                    $resultCategoriesOfGentelmen = $link->query($categoriesOfGentelmenSQL);
 
-                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 pb-2">
+                    while($gentelmanCategory = $resultCategoriesOfGentelmen->fetch_array()){
+                        $category = $gentelmanCategory['category'];
 
-                        <div class="card mx-auto d-block img-fluid" style="height:100%; width:100%;">
-                            <img src=<?php echo $collection[1]; ?> class="card-img-top" alt="...">
+                        // get randomly img of category 
+                        $categoryImgSQL = "SELECT img1 FROM item_details WHERE category='$category' ORDER by rand() LIMIT 1";
+                        $resultCategoryImg = $link->query($categoryImgSQL);
+                            $categoryImg = $resultCategoryImg->fetch_array();
+                       
+                        
+                ?>
+
+                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-3 pb-2 cat">
+
+                        <div class="card mx-auto d-block img-fluid " style="height: 100%; width:100%;">
+                            <img src=<?php echo $categoryImg['img1']; ?> class="card-img-top" alt="image">
                             <div class="card-body text-center">
-                                <h5 class="card-title "><?php echo $collection[0]; ?></h5>
+                                <h5 class="card-title "><?php echo $gentelmanCategory['category']; ?></h5>
                                 <a href="#" class="btn btn-warning mt-2">Buy Now</a>
                             </div>
                         </div>
 
                     </div>
 
-                <?php } ?>
+                <?php 
+                    } 
+                ?>
 
             </div>
 

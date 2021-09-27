@@ -1,6 +1,12 @@
 <?php
+
     function related_product($ProductID){
-     
+        require('../../connection/db.php');
+
+        // get name, img path , price 
+        // include("./connection/db.php");
+        $sql = "SELECT name, category, price FROM item_details WHERE id=$ProductID";
+        $result = $link->query($sql);
 
         $element = "
             <div class=\"col col-lg-3 col-md-3 col-sm-3 col-xs-4\">

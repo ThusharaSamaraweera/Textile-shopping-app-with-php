@@ -1,3 +1,5 @@
+/* home page */
+
 #bannerImage{
     padding-top:75px;
     padding-bottom:50px;
@@ -22,6 +24,27 @@
     max-width:660px;
 }
 
+.collection-header .text-warning b{
+    font-size: 1.5em;
+}
+
+.card{
+    height: 20em;
+}
+
+.card .card-body .card-title{
+    font-size: 1.2em;
+}
+
+.card .card-body a{
+    font-size: 1em;
+}
+
+/*product page */
+.row .text-warning b{
+    font-size: 1.5em;
+}
+
 .colletion-topic{
     text-align: left;
     font-size: 2em;
@@ -30,6 +53,10 @@
 
 .item-div{
     position: relative;
+}
+
+.home-category{
+    height: 15rem;
 }
 
 .item-div .card-body .btn-warning{
@@ -43,15 +70,42 @@
 }
 
 
+
 @media screen and (max-width:992px){
+
+        /*home page */
+
+    .card .card-body .card-title{
+        font-size: 1em;
+    }
     
+    .card .card-body a{
+        font-size: 0.8em;
+    }
 }
 @media screen and (max-width:768px){
-    
+    /* product page */
+    .row .text-warning b{
+        font-size: 1em;
+    }
 }
 
 
 @media screen and (max-width:576px){
+
+    /*home page */
+    .collection-header .text-warning b{
+        font-size: 1em;
+    }
+
+    .card .card-body .card-title{
+        font-size: .8em;
+    }
+    
+    .card .card-body a{
+        font-size: 0.6em;
+    }
+
     .cat{
         width: 18rem;
         align-content: center;
@@ -65,7 +119,11 @@
         font-size: 1.5em;
         margin: 1em;
     }
-    
-    
+
+
+        /* product page */
+        .row .text-warning b{
+            font-size: .8em;
+        }
 }
 
