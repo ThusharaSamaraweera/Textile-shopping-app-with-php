@@ -1,15 +1,11 @@
 <?php
+    session_start();
     require('./components/cart-info.php');
     // require('./database_connector.php');
 
     $shipping_percent = 5;
+    $items = $_SESSION['productList'];
 
-    $items = array(
-        array("images/Men/Formal Shirt/5.1.webp", 1, "Blue bodyfit shirt", "M", 1750, 2),
-        array("images/Men/Formal Shirt/5.1.webp", 1, "Blue bodyfit shirt", "M", 1750, 2),
-        array("images/Men/Formal Shirt/5.1.webp", 1, "Blue bodyfit shirt", "M", 1750, 2),
-        array("images/Men/Formal Shirt/5.1.webp", 1, "Blue bodyfit shirt", "M", 1750, 2),
-    );
 
 ?>
 
@@ -64,7 +60,7 @@
 
 <body class="js">
 
-    <!-- Preloader
+    <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
@@ -73,7 +69,7 @@
             </div>
         </div>
     </div>
-    End Preloader -->
+    <!-- End Preloader -->
 
 
     <!-- Shopping Cart -->

@@ -20,17 +20,20 @@ function cart_rows($image_path, $item_name, $size, $unit_prize, $quantity){
         </td>
 
         <td class=\"input-number\" data-min=\"1\" data-max=\"100\" data-title=\"Quantity\">
-            <div class=\"qty\">
-                <i type=\"button\" class=\"fa fa-minus-circle\" aria-hidden=\"true\"
-                    onclick=\"increaseQty()\"
-                ></i>
-                
-                <input class=\"qtyInput\" id=\"qtyInput\" type=\"number\" value=\"1\" min=\"1\" max=\"10\" >
-                
-                <i type=\"button\" class=\"fa fa-plus-circle\" aria-hidden=\"true\"
-                    onClick=\"discreaseQty()\"
-                ></i>
-            </div>
+            <form  method=\"POST\">
+                <div class=\"qty\">
+                    <i type=\"button\" class=\"fa fa-minus-circle\" aria-hidden=\"true\"
+                        onclick=\"increaseQty()\"
+                    ></i>
+                    
+                    <input class=\"qtyInput\" id=\"qtyInput\" type=\"number\" value=\"1\" min=\"1\" max=\"10\" >
+                    
+                    <i type=\"button\" class=\"fa fa-plus-circle\" aria-hidden=\"true\"
+                        onClick=\"discreaseQty()\"
+                    ></i>
+                </div>            
+            </form>
+
 
         </td>
 
