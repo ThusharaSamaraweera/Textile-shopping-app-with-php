@@ -132,7 +132,7 @@
                                     <div class="card-body text-center">
                                         <h5 class="card-title "><?php echo $row['name']; ?></h5>
                                         <h6 class="text-muted">Rs. <?php echo $mediumPrice; ?></h6>
-                                        <a href="./../ItemInfo/itemInfo.php?id=<?php echo $row['item_id']?>" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
+                                        <a href="./../ItemInfo/item.php?id=<?php echo $row['item_id']?>" class="btn btn-warning"><i class="bi bi-cart4 mx-1"></i>Buy Now</a>
                                     </div>
                                 </div>
 

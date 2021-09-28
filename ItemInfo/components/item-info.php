@@ -98,9 +98,12 @@ function item_info($productName, $productCateogory, $productDescription, $produc
                     </div>
                     
                     <div class=\"col col-xs col-sm add-to-cart\">
-                        <button type=\"button\" class=\"btn btn-danger\"
-                            onClick=\"addToCard()\"
-                        >ADD TO CART</button>   
+     
+                            
+                            <button type=\"button\" class=\"btn btn-danger\"
+                                onClick=\"addToCard()\"
+                            >ADD TO CART</button>                         
+                        
                     </div>
                 </div>
                 
