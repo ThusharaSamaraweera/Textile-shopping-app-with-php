@@ -1,9 +1,10 @@
 <?php
+    session_start();
     require('./components/item-info.php');
     require('./components/relatedProduct.php');
     require('../connection/db.php');
 
-
+   
     // id of displaied item
     if(isset($_REQUEST['id'])){
         $id = $_REQUEST['id'];
@@ -16,33 +17,6 @@
         $currentQty = 1;
     }
 
-    // size s click or not
-    if(isset($_REQUEST['btnradioS'])){
-        $btnradioS = "click";
-        echo $btnradioS;
-    }else{
-        $btnradioS = "notClick";
-        echo $btnradioS;
-
-    }
-
-    // size m click or not
-    if(isset($_REQUEST['btnradioM'])){
-        $btnradioM = true;
-
-    }else{
-        $btnradioM = false;
-    }
-
-    // size m click or not
-    if(isset($_REQUEST['btnradioL'])){
-        $btnradioL = true;
-    }else{
-        $btnradioL = false;
-    }
-
-
-
     // sql for getting item which has selected id
     $sql = "SELECT name, category, description, price, qty, img1, img2, img3 FROM item_details WHERE item_id=$id";
 
@@ -53,6 +27,48 @@
         $qty = unserialize($row['qty']);
 
         $currectCategory = $row['category'];
+
+  
+    if(isset($_REQUEST['btnradio'])){
+        $size = $_REQUEST['btnradio'];
+        // if($click == 'S'){
+        //     echo 's';
+        // }
+        // if($click == 'M'){
+        //     echo 'm';
+        // }
+        // if($click == 'L'){
+        //     echo 'l';
+        // }
+
+        if($size == 'S'){
+            $unitPrice = $prices[0]['s'];
+            echo 'hi';
+        }
+        if($size == 'M'){
+            $unitPrice = $prices[0]['m'];
+        }
+        if($size == 'L'){
+            $unitPrice = $prices[0]['l'];
+        }
+
+        $itemArr = array($row['img1'], $id, $row['name'], $size, $unitPrice, $currentQty);
+        var_dump($itemArr);
+        array_push($_SESSION['productsList'], $itemArr);
+        var_dump($_SESSION);
+
+        
+
+    }
+    else{
+        $btnradioS = 0;
+
+        echo $btnradioS;
+
+    }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -127,59 +143,53 @@
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                     <script>
                                         window.onload = function(){
-                                            console.log('hi1');
+
                                             if(<?php echo $qty[0]['s']?><1){
                                                 document.getElementById('qtyS').style.display = 'none';
-                                                console.log('low');
+            
                                             }else{
-                                                console.log("h");
-                                                if(<?php echo $btnradioS ?> == click){
-                                                    document.getElementById('radio1').style.backgroundColor = 'red';
-                                                    console.log('hi');
-                                                }
+                              
+
                                             }
 
                                             if(<?php echo $qty[0]['m']?><1){
                                                 document.getElementById('qtyM').style.display = 'none';
                                             }
-                                            // else{
-                                            //     if(<?php echo $btnradioM ?>){
-                                            //         document.getElementById('radio2').style.backgroundColor = "orange";
-                                            //         console.log("hi");
-                                            //     }
-                                            // }
+                                           
+
 
                                             if(<?php echo $qty[0]['l']?><1){
                                                 document.getElementById('qtyL').style.display = 'none';
                                             }
-                                            // else{
-                                            //     if(<?php echo $btnradioL ?>){
-                                            //         document.getElementById('radio3').style.backgroundColor = "orange";
-                                            //     }
-                                            // }
+
 
                                         }
 
                                     </script> 
-                                    <div id="qtyS">
-                                        <input type="radio" class="btn-check" name="btnradioS" id="btnradio1" 
+                                    <div id="qtyS"  role="group" class="btn-group">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" 
                                             value="S" autocomplete="off" form="addToCard">
                                         <label class="btn btn-outline-primary" for="btnradio1" id="radio1" >S</label>                                                
                                     </div>
 
-                                    <div id="qtyM">
-                                        <input type="radio" class="btn-check" name="btnradioM" id="btnradio2"
+                                    <div id="qtyM" >
+                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2"
                                                 value="M" autocomplete="off" form="addToCard">
                                         <label class="btn btn-outline-primary" for="btnradio2" id="radio2" >M</label>                        
                                     </div>
 
                                     <div id="qtyL">
-                                        <input type="radio" class="btn-check" name="btnradioL" id="btnradio3" 
+                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" 
                                                 value="L" autocomplete="off" form="addToCard">
                                         <label class="btn btn-outline-primary" for="btnradio3" id="radio3">L</label>                        
                                     </div>
 
                                 </div>
+                                <!-- <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-primary">Left</button>
+                                    <button type="button" class="btn btn-primary">Middle</button>
+                                    <button type="button" class="btn btn-primary">Right</button>
+                                </div> -->
                             </div>
 
 

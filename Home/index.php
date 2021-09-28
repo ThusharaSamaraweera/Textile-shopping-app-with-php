@@ -1,8 +1,9 @@
 <?php
+    session_start();
     include('./collectiontype.php');
 
-    $products = array();
-    $_SESSION['products'] = $products;
+    $productsList = array();
+    $_SESSION['productsList'] = $productsList;
 
 ?>  
 
