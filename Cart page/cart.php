@@ -71,6 +71,10 @@
     </div>
     <!-- End Preloader -->
 
+    <?php
+        include("../Header/header.php");
+        include("../Home/navbar.php");  
+    ?>
 
     <!-- Shopping Cart -->
     <div class="shopping-cart section">

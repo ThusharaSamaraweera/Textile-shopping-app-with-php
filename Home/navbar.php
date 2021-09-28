@@ -35,7 +35,7 @@
             $user = $_SESSION['user_name'];
             ?>
             <li class="nav-item">
-              <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-cart-plus mx-1"></i>Cart</b></a>
+              <a class="nav-link px-4 text-warning" href="../Cart page/cart.php"><b><i class="bi bi-cart-plus mx-1"></i>Cart</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-person-circle mx-1"></i><?php echo $user;?></b></a>
