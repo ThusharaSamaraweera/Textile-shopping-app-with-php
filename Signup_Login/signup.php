@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
+<?php
+include("../Header/head.html");
+?>
+
 <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/a704e7bb80.js" crossorigin="anonymous"></script>
-<!-- bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-<title>SignUP</title>
+
  <!-- alert JS -->
  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -70,7 +71,8 @@
         //HTML body
         $mail->IsHTML(true);
         $mail->Subject="Your verification code";
-        $mail->Body="<p>Dear ".$lastname.", </p> <h3>Your verify OTP code is $otp <br></h3>
+        $mail->Body="<p>Dear ".$lastname.",</p>
+        <h3>Your verify OTP code is $otp </h3>
         <br><br>
         <p>With regrads,</p>
         <b>kingsmen Textile</b>";
@@ -138,7 +140,7 @@ include("../Header/header.php");
                       name="fname"
                       id="fname"                     
                       class="form-control"
-                      placeholder="Jhon"
+                      placeholder="First Name"
 					            required
                     />                   
                   <div class="invalid-feedback">Please provide your First Name.</div>
@@ -153,7 +155,7 @@ include("../Header/header.php");
                       name="lname"
                       id="lname"
                       class="form-control"
-                      placeholder="Jhon"
+                      placeholder="Last Name"
 					            required
                     />                  
                   <div class="invalid-feedback">Please provide your Last Name.</div>

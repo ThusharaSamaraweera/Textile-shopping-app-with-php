@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 ?>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -25,10 +25,10 @@ session_start();
         if(!isset($_SESSION['user_name'])) {
           ?>
           <li class="nav-item">
-          <a class="nav-link px-4 text-warning" href="../Signup&Login/signup.php"><b><i class="bi bi-person mx-1"></i>Sign-Up</b></a>
+          <a class="nav-link px-4 text-warning" href="../Signup_Login/signup.php"><b><i class="bi bi-person mx-1"></i>Sign-Up</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-4 text-warning" href="../Signup&Login/login.php"><b><i class="bi bi-box-arrow-in-right mx-1"></i>Log-in</b></a>
+          <a class="nav-link px-4 text-warning" href="../Signup_Login/login.php"><b><i class="bi bi-box-arrow-in-right mx-1"></i>Log-in</b></a>
         </li>
           <?php
         }else{
