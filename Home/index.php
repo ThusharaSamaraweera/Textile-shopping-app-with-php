@@ -4,7 +4,7 @@
 
     $productsList = array();
     $_SESSION['productsList'] = $productsList;
-
+    $_SESSION['tot_products'] = 0;
 ?>  
 
 <!DOCTYPE html>

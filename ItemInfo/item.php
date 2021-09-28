@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require('./components/item-info.php');
     require('./components/relatedProduct.php');
     require('../connection/db.php');
 
@@ -31,19 +30,9 @@
   
     if(isset($_REQUEST['btnradio'])){
         $size = $_REQUEST['btnradio'];
-        // if($click == 'S'){
-        //     echo 's';
-        // }
-        // if($click == 'M'){
-        //     echo 'm';
-        // }
-        // if($click == 'L'){
-        //     echo 'l';
-        // }
 
         if($size == 'S'){
             $unitPrice = $prices[0]['s'];
-            echo 'hi';
         }
         if($size == 'M'){
             $unitPrice = $prices[0]['m'];
@@ -52,22 +41,19 @@
             $unitPrice = $prices[0]['l'];
         }
 
-        $itemArr = array($row['img1'], $id, $row['name'], $size, $unitPrice, $currentQty);
-        var_dump($itemArr);
+        $tot_products = $_SESSION['tot_products'] + 1;
+        $_SESSION['tot_products'] = $tot_products;
+
+        $itemArr = array($_SESSION['tot_products'],$row['img1'], $id, $row['name'], $size, $unitPrice, $currentQty);
+        // var_dump($itemArr);
+
+
         array_push($_SESSION['productsList'], $itemArr);
-        var_dump($_SESSION);
-
-        
-
+        // var_dump($_SESSION);
     }
     else{
         $btnradioS = 0;
-
-        echo $btnradioS;
-
     }
-
-
 
 ?>
 

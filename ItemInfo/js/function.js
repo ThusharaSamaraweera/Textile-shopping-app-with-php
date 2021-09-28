@@ -11,11 +11,3 @@ function increaseQty(){
 function discreaseQty(){
     document.getElementById('qtyInput').stepUp();
 }
-
-function addToCard(){
-    const radioBtn = document.querySelector('input[name = "btnradio"]:checked').value;
-
-    const qty = document.getElementById('qtyInput').value;
-    console.log(radioBtn, qty);
-    
-};

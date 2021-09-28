@@ -1,8 +1,6 @@
 <?php
-    
+    session_start();
 	include ("../connection/db.php");
-
-    $category = array('Men Top Wear', 'Women BLOUSES & SHIRTS');
 
 ?>
 <!DOCTYPE html>

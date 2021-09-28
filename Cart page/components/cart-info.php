@@ -48,7 +48,7 @@ function cart_rows($image_path, $item_name, $size, $unit_prize, $quantity){
 function items_total_ammount($items){
     $total = 0;
     for($i = 0; $i < sizeof($items); $i++){
-        $total = $total + ($items[$i][4]*$items[$i][5]);
+        $total = $total + ($items[$i][5]*$items[$i][6]);
     }
     echo $total;
 
@@ -57,7 +57,7 @@ function items_total_ammount($items){
 function shipping($items, $shipping_percent){
     $total = 0;
     for($i = 0; $i < sizeof($items); $i++){
-        $total = $total + ($items[$i][4]*$items[$i][5]);
+        $total = $total + ($items[$i][5]*$items[$i][6]);
     }
     $shipping_fee = ($total*$shipping_percent)/100;
     echo $shipping_fee;
@@ -66,7 +66,7 @@ function shipping($items, $shipping_percent){
 function payment($items, $shipping_percent){
     $total = 0;
     for($i = 0; $i < sizeof($items); $i++){
-        $total = $total + ($items[$i][4]*$items[$i][5]);
+        $total = $total + ($items[$i][5]*$items[$i][6]);
     }
     $shipping_fee = ($total*$shipping_percent)/100;
     $payment_ammount = $total + $shipping_fee;

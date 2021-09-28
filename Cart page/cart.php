@@ -1,11 +1,18 @@
 <?php
     session_start();
     require('./components/cart-info.php');
-    // require('./database_connector.php');
+
 
     $shipping_percent = 5;
-    $items = $_SESSION['productList'];
 
+    // $items = array(
+    //     array("images/Men/Formal Shirt/5.1.webp", 1, "Blue bodyfit shirt", "M", 1750.00, 5),
+    //     array("images/Men/Formal Shirt/5.1.webp", 2, "Blue bodyfit shirt", "M", 1750.00, 2),
+    //     array("images/Men/Formal Shirt/5.1.webp", 3, "Blue bodyfit shirt", "M", 1750.00, 2),
+    //     array("images/Men/Formal Shirt/5.1.webp", 4, "Blue bodyfit shirt", "M", 1750.00, 2),
+    // );
+    $items = $_SESSION['productsList'];
+    
 
 ?>
 
@@ -61,14 +68,14 @@
 <body class="js">
 
     <!-- Preloader -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
                 <span></span>
                 <span></span>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Preloader -->
 
     <?php
@@ -97,9 +104,68 @@
                         </thead>
                         <!--/ Cart body -->
                         <tbody>
-                        <?php
-                            row_info($items);
-                        ?>
+                            <?php
+                            for($i=0; $i<sizeof($items); $i++){
+                                $row_total = $items[$i][5]*$items[$i][6];
+                               
+
+                            ?>
+                            <tr>
+                                <td class="image" data-title="No">
+                                <img src="../Home<?php echo $items[$i][1]?>" alt="#" style="width:100px; height:120px;">
+                                </td>
+                                
+                                <td class="product-des" data-title="Description">
+                                    <p class="product-name"><a href="#"><?php echo $items[$i][3]?></a></p>
+                                </td>
+
+                                <td class="size" data-title="Size"><span><?php echo $items[$i][4]?></span></td>
+
+                                <td class="price" data-title="Price">
+                                    <span>Rs.<?php echo $items[$i][5]?></span>
+                                </td>
+                                <script>
+                                    
+                                    function increaseQty(){
+                                        document.getElementById("qtyInput<?php echo $items[$i][0];?>").stepDown();
+                                    }
+
+                                    function discreaseQty(){
+                                        document.getElementById('qtyInput<?php echo $items[$i][0];?>').stepUp();
+                                    }
+                                </script>
+
+                                <td class="input-number" data-min="1" data-max="100" data-title="Quantity">
+                                    <form  method="POST">
+                                        <div class="qty">
+                                            <i type="button" class="fa fa-minus-circle" aria-hidden="true"
+                                                onclick="increaseQty()" style="font-size: 1.5em;" 
+                                            ></i>
+                                            
+                                            <input class="qtyInput" id="qtyInput<?php echo $items[$i][0];?>" type="number" value=<?php echo $items[$i][6]?> min="1" max="10" 
+                                                style="width: 2em; text-align: center;"
+                                            >
+                                            
+                                            <i type="button" class="fa fa-plus-circle" aria-hidden="true"
+                                                onClick="discreaseQty()" style="font-size: 1.5em;" 
+                                            ></i>
+                                        </div>            
+                                    </form>
+                                </td>
+
+                                <td class="total-amount" data-title="Total"><span>Rs.<?php echo $row_total?></span></td>
+                                
+                                <td class="action" data-title="Remove"><a href="#">
+                                    <button type="submit">
+                                        <i class="ti-trash remove-icon"></i></a>
+                                        <input name="delete" type="hidden" value="delete">
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <?php
+                            }
+                            ?>
 
                         </tbody>
                         <!--/ End cart body -->
@@ -327,7 +393,8 @@
         <!-- Modal end -->
 
 
-
+        <script src="./customFunction.js"></script>
+                            
         <!-- Jquery -->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-migrate-3.0.0.js"></script>

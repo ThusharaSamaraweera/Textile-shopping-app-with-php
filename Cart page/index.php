@@ -8,9 +8,6 @@
         );
 
     $_SESSION['productList'] = $items;
-
-
-
 ?>
 
 <!DOCTYPE html>
