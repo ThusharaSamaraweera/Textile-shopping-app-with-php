@@ -1,12 +1,21 @@
 <?php
-
-	$id = 1;
+	session_start();
+	$id = 13;
 	require_once('./db.php');
 
 	$subTot = 330.00;
 	$shipping = $subTot*5/100;
 	$tot = $subTot + $shipping;
 
+	$_SESSION['subTot'] = $subTot;
+	$_SESSION['shipping'] = $shipping;
+	$_SESSION['tot'] = $tot;
+
+	if(isset($_REQUEST['submit'])){
+		$firstName = $_REQUEST['first-name'];
+		echo $firstName;
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -207,8 +216,6 @@
 
 									</div>
 								</div>
-								<button type="submit" id="submitButton">submit</button>
-						
 						</form>
 						<!--/ End Form -->
 					</div>
@@ -222,27 +229,20 @@
 								<ul>
 									<li>Sub Total<span>$ <?php echo $subTot ?></span></li>
 									<li>(+) Shipping<span>$ <?php echo $shipping ?></span></li>
-									<li class="last">Total<span>$ <?php echo $tot ?></span></li>
+									<li class="last" id="total">Total<span >$ <?php echo $tot ?></span></li>
 								</ul>
 							</div>
 						</div>
 						<!--/ End Order Widget -->
 
-						<!-- Payment Method Widget -->
-						<div class="single-widget payement">
-							<div class="content">
-								<img src="./images/payment-method.png" alt="#">
-							</div>
-						</div>
-						<!--/ End Payment Method Widget -->
 						<!-- Button Widget -->
 						<div class="single-widget get-button">
 							<div class="content">
-								<div class="button" onclick="submitForm()">
-									<a href="#" class="btn">proceed to checkout</a>
-								</div>
+								<form method="POST" id="checkoutForm" name="form" action=<?php echo $_SERVER['checkout.php']?> >
+									<input type="hidden" value="submit" name="submit">
+									<button type="submit" class="btn animate">Payment Options</button>								
+								</form>
 							</div>
-							<button type="submit"  onclick="submitForm()">submit </button>
 						</div>
 						<!--/ End Button Widget -->
 					</div>
@@ -252,5 +252,7 @@
 	</section>
 
 	<script type="text/javascript" src="./function.js" ></script>
+    
+
 </body>
 </html>
