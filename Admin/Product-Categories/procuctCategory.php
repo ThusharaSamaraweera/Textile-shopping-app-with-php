@@ -78,7 +78,7 @@ $loop = 0;
                 <form>
                     <div class="form-group">
                         <label class="mb-2">Title</label>
-                        <input type="email" class="form-control " placeholder="Category name">
+                        <input type="text" class="form-control " placeholder="Category name">
                         <small class="form-text text-muted" style="font-size: 12px;">Add the new category name here.</small>
                     </div>
                     
@@ -107,7 +107,7 @@ $loop = 0;
                                         <th scope="row"><?php echo $categories[$loop][0]; ?></th>
                                         <td><?php echo $categories[$loop][1]; ?></td>
                                         <td><?php echo $categories[$loop][2]; ?></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                        <td><button type="button" class="btn btn-danger btn-sm"><b>X</b></i></button></td>
                                     </tr>
 
                                 <?php $loop++;
