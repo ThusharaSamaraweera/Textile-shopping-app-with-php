@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification</title>
-     <!-- Bootstrap -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <?php
+    include("../Header/head.html");
+    ?>
    <!-- alert JS -->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -17,7 +14,10 @@
        }
        #Verify {
             background-color: #EC7A27;
-            margin-top: 5px;
+            margin-top: 10px;
+       }
+       #cancel {
+          margin-top: 10px; 
        }
        .form-group {
 			margin-top: 5px;
@@ -30,6 +30,9 @@
    </style>
 </head>
 <body>
+    <?php
+    include("../Header/header.php");
+    ?>
     <header>
         <h1>Account Verification</h1>
     </header>
@@ -55,7 +58,7 @@
            </script>
            <?php
         }else{
-            $sql = "INSERT INTO customer (first_name, last_name, email, password) values ('$firstname', '$lastname', '$email', '$password')";
+            $sql = "INSERT INTO customer (first_name, last_name, email, password, user_type) values ('$firstname', '$lastname', '$email', '$password', 'c')";
             $result	=	$link->query($sql);
             ?>
              <script>
@@ -102,6 +105,7 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
+                                <input type="button" class="btn btn-secondary btn-block" id="cancel" value="Cancel" name="cancel" onclick="javascript:window.location='../Home/index.php';">
                                 <input type="submit" class="btn btn-secondary btn-block" id="Verify" value="Verify" name="verify">
                             </div>
                     </div>

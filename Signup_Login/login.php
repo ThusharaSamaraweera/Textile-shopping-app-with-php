@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-
-    <!-- Bootstrap -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <?php
+  include("../Header/head.html");
+  ?>
 	  
    <!-- alert JS -->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -36,6 +33,7 @@
 		while($row = $result->fetch_array()){
 			$email = $row['email'];
 			$hash  = $row['password'];
+      $user_type = $row['user_type'];
 			
 			if ( $lemail == $email and $verify = password_verify($lpassword, $hash)){
 				$user_name = $row['last_name'];
@@ -48,6 +46,7 @@
 			session_start();
 			$_SESSION['user_name'] = $user_name;
 			$_SESSION['id'] = $id;
+      if($user_type == 'c'){
       ?>
              <script>
                  Swal.fire({
@@ -60,6 +59,21 @@
              <!-- A meta tag that redirects after 5 seconds-->
             <meta http-equiv="refresh" content="2;url=../Home/index.php">
             <?php
+      }else{
+        ?>
+        <script>
+            Swal.fire({
+               icon: 'success',
+               title: 'Successfully logged in',
+               showConfirmButton: false,
+               timer: 1500
+           })
+        </script>
+        <!-- A meta tag that redirects after 5 seconds-->
+       <meta http-equiv="refresh" content="2;url=../Admin/admin.php">
+       <?php
+
+      }
 		} else{
       ?>
       <script>
