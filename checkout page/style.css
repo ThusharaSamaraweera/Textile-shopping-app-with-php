@@ -56,8 +56,8 @@
 	border: none;
 	background: #F6F7FB;
 }
-.shop.checkout .form .form-group input:hover{
-	
+.shop.checkout .form .form-group input:-webkit-inner-spin-button{
+	-webkit-appearance: none;
 }
 
 .shop.checkout .form .address input {

@@ -171,11 +171,6 @@
                                     </div>
 
                                 </div>
-                                <!-- <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Left</button>
-                                    <button type="button" class="btn btn-primary">Middle</button>
-                                    <button type="button" class="btn btn-primary">Right</button>
-                                </div> -->
                             </div>
 
 
@@ -198,7 +193,7 @@
                                     <form id="addToCard" name="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?> >
                                         <input type="hidden" name="id" value=<?php echo $id; ?> >
                                         <button type="submit" class="btn btn-danger" value="addToCard"
-                                            onClick="addToCard()"
+                                           
                                         >ADD TO CART</button>                         
                                     </form>
                                 </div>

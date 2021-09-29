@@ -1,3 +1,5 @@
+
+
 /* =====================================
 Template Name: Eshop
 Author Name: Naimur Rahman
@@ -1107,7 +1109,7 @@ Version:1.0
 .shop.single .product-des .size ul li a:hover{
 	color:#F7941D;
 }
-.shop.single .quantity {
+/* .shop.single .quantity {
 	display: inline-block;
 	margin-right: 10px;
 }
@@ -1159,7 +1161,7 @@ Version:1.0
 	border-radius: 0px;
 	overflow: hidden;
 	padding: 0px 38px;
-}
+} */
 .shop.single .add-to-cart {
 	display:inline-block;
 }
@@ -1625,7 +1627,7 @@ Version:1.0
 .shopping-cart .table td {
 	vertical-align: middle;
 	border-top: 1px solid #eee;
-	padding: 30px;
+	padding: 7px 6px;
 	text-align: center;
 }
 .shopping-summery tbody .price {
@@ -1674,6 +1676,7 @@ Version:1.0
 	border-radius:0;
 	overflow: hidden;
 	padding: 0px 45px;
+	background-color: red;
 }
 .shopping-summery tbody .total-amount {
 	text-align: center;
@@ -1793,7 +1796,7 @@ Version:1.0
 }
 .shopping-cart .total-amount .right ul li span{
 	display:inline-block;
-	float:right;
+	float: right;
 }
 .shopping-cart .total-amount .right .button5 .btn {
 	text-align: center;

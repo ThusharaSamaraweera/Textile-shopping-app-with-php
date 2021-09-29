@@ -9,11 +9,17 @@
     //     array("images/Men/Formal Shirt/5.1.webp", 1, "Blue bodyfit shirt", "M", 1750.00, 5),
     //     array("images/Men/Formal Shirt/5.1.webp", 2, "Blue bodyfit shirt", "M", 1750.00, 2),
     //     array("images/Men/Formal Shirt/5.1.webp", 3, "Blue bodyfit shirt", "M", 1750.00, 2),
-    //     array("images/Men/Formal Shirt/5.1.webp", 4, "Blue bodyfit shirt", "M", 1750.00, 2),
+    //     array("images/Men/Formal Shirt/5.1.webp", 4, "aBlue bodyfit shirt", "M", 1750.00, 2),
     // );
     $items = $_SESSION['productsList'];
     
+    if(isset($_REQUEST['delete'])){
+        echo $_REQUEST['item_id'];
+        $item_id = $_REQUEST['item_id'];
+        unset($_SESSION['productsList'][$item_id]);
 
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +28,12 @@
 <head>
     <!-- Meta Tag -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name='copyright' content=''>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
-    <title>Eshop - eCommerce HTML5 Template.</title>
+    <title>Cart</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <!-- Web Font -->
@@ -100,6 +106,7 @@
                                 <th class="text-center">QUANTITY</th>
                                 <th class="text-center">TOTAL</th>
                                 <th class="text-center"><i class="ti-trash remove-icon"></i></th>
+                                <th class="text-center">update</th>
                             </tr>
                         </thead>
                         <!--/ Cart body -->
@@ -155,11 +162,28 @@
 
                                 <td class="total-amount" data-title="Total"><span>Rs.<?php echo $row_total?></span></td>
                                 
-                                <td class="action" data-title="Remove"><a href="#">
-                                    <button type="submit">
-                                        <i class="ti-trash remove-icon"></i></a>
+                                <td class="action" data-title="Remove">
+                                    <form id="cartForm" name="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?> >
                                         <input name="delete" type="hidden" value="delete">
-                                    </button>
+                                        <input name="item_id" type="hidden" value=<?php echo $items[$i][0]; ?>>
+                                        <button type="submit">
+                                            <i class="ti-trash remove-icon"></i></a>
+                                            
+
+                                        </button>
+                                    </form>
+                                </td>
+
+                                <td class="action" data-title="Remove">
+                                    <form id="cartForm" name="form" method="post" action=<?php echo $_SERVER['PHP_SELF']; ?> >
+
+                                        <button type="submit">
+                                            update
+                                            <input name="update" type="hidden" value="update">
+                                            <input name="item_id" type="hidden" value=<?php echo $items[$i]; ?>>
+                                        </button>
+                                    </form>
+
                                 </td>
                             </tr>
 

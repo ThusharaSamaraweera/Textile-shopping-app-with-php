@@ -25,17 +25,17 @@
         if(!isset($_SESSION['user_name'])) {
           ?>
           <li class="nav-item">
-          <a class="nav-link px-4 text-warning" href="../Signup&Login/signup.php"><b><i class="bi bi-person mx-1"></i>Sign-Up</b></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-4 text-warning" href="../Signup_Login/login.php"><b><i class="bi bi-box-arrow-in-right mx-1"></i>Log-in</b></a>
-        </li>
+            <a class="nav-link px-4 text-warning" href="../Signup_Login/signup.php"><b><i class="bi bi-person mx-1"></i>Sign-Up</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-4 text-warning" href="../Signup_Login/login.php"><b><i class="bi bi-box-arrow-in-right mx-1"></i>Log-in</b></a>
+          </li>
           <?php
         }else{
             $user = $_SESSION['user_name'];
             ?>
             <li class="nav-item">
-              <a class="nav-link px-4 text-warning" href="../Cart page/cart.php"><b><i class="bi bi-cart-plus mx-1"></i>Cart</b></a>
+              <a class="nav-link px-4 text-warning" href="../Cart_page/cart.php"><b><i class="bi bi-cart-plus mx-1"></i>Cart</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-person-circle mx-1"></i><?php echo $user;?></b></a>
