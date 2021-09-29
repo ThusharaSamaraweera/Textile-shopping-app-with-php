@@ -1,12 +1,21 @@
 <?php
-
-	$id = 1;
+	session_start();
+	$id = 13;
 	require_once('./db.php');
 
 	$subTot = 330.00;
 	$shipping = $subTot*5/100;
 	$tot = $subTot + $shipping;
 
+	$_SESSION['subTot'] = $subTot;
+	$_SESSION['shipping'] = $shipping;
+	$_SESSION['tot'] = $tot;
+
+	if(isset($_REQUEST['submit'])){
+		$firstName = $_REQUEST['first-name'];
+		echo $firstName;
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +72,51 @@
 						<h2>Make Your Checkout Here</h2>
 						<p>Please register in order to checkout more quickly</p>
 						<!-- Form -->
-						<form class="form" method="post" action="#">
+						
+							
+						<script>
+							// functions for radio button
+							function same(){
+								<?php
 
+									$getCustomerDetailssql1 = "SELECT first_name, last_name, email FROM customer WHERE id=$id";
+									$resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
+									$customerDetails1 = $resultCustomerDetails1->fetch_array();
+
+									$getCustomerDetailssql2 = "SELECT phone_num, country, country, state, address_line_1, address_line_2, postel_code FROM customer_details WHERE id=$id";
+									$resultCustomerDetails2 = $link->query($getCustomerDetailssql2);
+									$customerDetails2 = $resultCustomerDetails2->fetch_array();
+
+
+								?>
+
+								// fill details
+								document.getElementById('first-name').value = "<?php echo $customerDetails1['first_name']; ?>";
+								document.getElementById('last-name').value = "<?php echo $customerDetails1['last_name']; ?>";
+								document.getElementById('email').value = "<?php echo $customerDetails1['email']; ?>";
+								document.getElementById('country').value = "<?php echo $customerDetails2['country']; ?>";
+								document.getElementById('phone-number').value = "<?php echo $customerDetails2['phone_num']; ?>";
+								document.getElementById('state').value = "<?php echo $customerDetails2['state']; ?>";
+								document.getElementById('address1').value = "<?php echo $customerDetails2['address_line_1']; ?>";
+								document.getElementById('address2').value = "<?php echo $customerDetails2['address_line_2']; ?>";
+								document.getElementById('postel_code').value = "<?php echo $customerDetails2['postel_code']; ?>";
+
+							};
+									
+							function change(){
+								// remove detiails
+								document.getElementById('first-name').value = " ";
+								document.getElementById('last-name').value = " ";
+								document.getElementById('email').value = " ";
+								document.getElementById('country').value = " ";
+								document.getElementById('phone-number').value = " ";
+								document.getElementById('state').value = " ";
+								document.getElementById('address1').value = " ";
+								document.getElementById('address2').value = " ";
+								document.getElementById('postel_code').value = " ";
+							
+							};
+						</script>
 							<div class="row radio-btn">
 								<div class="col col-xs-12 col-sm-4 form-check">
 									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
@@ -83,78 +135,44 @@
 								</div>
 							</div>
 
-							<script>
-								// functions for radio button
-								function same(){
-									let same = true;
-									<?php
 
-										$getCustomerDetailssql1 = "SELECT first_name, last_name, email FROM customer WHERE id=$id";
-										$resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
-										$customerDetails1 = $resultCustomerDetails1->fetch_array();
-
-										$getCustomerDetailssql2 = "SELECT phone_num, country, country, state, address_line_1, address_line_2, postel_code FROM customer_details WHERE id=$id";
-										$resultCustomerDetails2 = $link->query($getCustomerDetailssql2);
-										$customerDetails2 = $resultCustomerDetails2->fetch_array();
-
-
-									?>
-									document.getElementById('first-name').value = "<?php echo $customerDetails1['first_name']; ?>";
-									document.getElementById('last-name').value = "<?php echo $customerDetails1['last_name']; ?>";
-									document.getElementById('email').value = "<?php echo $customerDetails1['email']; ?>";
-									document.getElementById('country').value = "<?php echo $customerDetails2['country']; ?>";
-									document.getElementById('phone-number').value = "<?php echo $customerDetails2['phone_num']; ?>";
-									document.getElementById('state').value = "<?php echo $customerDetails2['state']; ?>";
-									document.getElementById('address1').value = "<?php echo $customerDetails2['address_line_1']; ?>";
-									document.getElementById('address2').value = "<?php echo $customerDetails2['address_line_2']; ?>";
-									document.getElementById('postel_code').value = "<?php echo $customerDetails2['postel_code']; ?>";
-
-								}
-										
-								function change(){
-									same = false;
-									document.getElementById('first-name').value = " ";
-									document.getElementById('last-name').value = " ";
-									document.getElementById('email').value = " ";
-									document.getElementById('country').value = " ";
-									document.getElementById('phone-number').value = " ";
-									document.getElementById('state').value = " ";
-									document.getElementById('address1').value = " ";
-									document.getElementById('address2').value = " ";
-									document.getElementById('postel_code').value = " ";
-								
-								}
-							</script>
-
-							<div class="row">
+							<form class="needs-validation row form" method="post" action="#" novalidate>
+				
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>First Name<span>*</span></label>
-										<input type="text" name="name" placeholder="" id="first-name" required="required">
+										<input type="text" name="name" placeholder="" id="first-name" required class="form-control">
+										<div class="invalid-feedback">Please provide first name</div>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Last Name<span>*</span></label>
-										<input type="text" name="name" placeholder="" id="last-name" required="required">
+										<input type="text" name="name" placeholder="" id="last-name" required class="form-control">
+										<div class="invalid-feedback">Please provide last name</div>
+
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Email Address<span>*</span></label>
-										<input type="email" name="email" placeholder="" id="email" required="required">
+										<input type="email" name="email" placeholder="" id="email" required class="form-control">
+										<div class="invalid-feedback">Please provide email</div>
+
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Phone Number<span>*</span></label>
-										<input type="number" name="number" placeholder="" id="phone-number" required="required">
+										<input type="number" name="number" placeholder="" id="phone-number" required class="form-control">
+										<div class="invalid-feedback">Please provide phone number</div>
+
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group country-select">
 										<label>Country<span>*</span></label>
-										<select name="country_name" id="country">
+										<select class="form-select" name="country_name" id="country">
 											<option value="AF">Afghanistan</option>
 											<option value="LK">Sri Lanka</option>
 											<option value="IN">India</option>
@@ -162,34 +180,42 @@
 											<option value="PK">Pakistan</option>
 											<option value="NP">Nepal</option>
 										</select>
+										<div class="invalid-feedback">Please provide State / Divition / Provice</div>
+
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>State / Divition / Provice<span>*</span></label>
-										<input type="text" name="address" placeholder="" id="state" required="required">
+										<input type="text" name="address" placeholder="" id="state" required class="form-control">
+										<div class="invalid-feedback">Please provide State / Divition / Provice</div>
 
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Address Line 1<span>*</span></label>
-										<input type="text" name="address" placeholder="" id="address1" required="required">
+										<input type="text" name="address" placeholder="" id="address1" required class="form-control">
+										<div class="invalid-feedback">Please provide Address</div>
+
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Address Line 2<span>*</span></label>
-										<input type="text" name="address" placeholder="" id="address2" required="required">
+										<input type="text" name="address" placeholder="" id="address2" required class="form-control">
+										<div class="invalid-feedback">Please provide Address</div>
+									
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Postal Code<span>*</span></label>
-										<input type="text" name="post" placeholder="" id="postel_code"  required="required">
+										<input type="text" name="post" placeholder="" id="postel_code"  required class="form-control">
+										<div class="invalid-feedback">Please provide Postal Code</div>
+
 									</div>
 								</div>
-							</div>
 						</form>
 						<!--/ End Form -->
 					</div>
@@ -203,25 +229,19 @@
 								<ul>
 									<li>Sub Total<span>$ <?php echo $subTot ?></span></li>
 									<li>(+) Shipping<span>$ <?php echo $shipping ?></span></li>
-									<li class="last">Total<span>$ <?php echo $tot ?></span></li>
+									<li class="last" id="total">Total<span >$ <?php echo $tot ?></span></li>
 								</ul>
 							</div>
 						</div>
 						<!--/ End Order Widget -->
 
-						<!-- Payment Method Widget -->
-						<div class="single-widget payement">
-							<div class="content">
-								<img src="./images/payment-method.png" alt="#">
-							</div>
-						</div>
-						<!--/ End Payment Method Widget -->
 						<!-- Button Widget -->
 						<div class="single-widget get-button">
 							<div class="content">
-								<div class="button" onclick="submitForm()">
-									<a href="#" class="btn">proceed to checkout</a>
-								</div>
+								<form method="POST" id="checkoutForm" name="form" action=<?php echo $_SERVER['checkout.php']?> >
+									<input type="hidden" value="submit" name="submit">
+									<button type="submit" class="btn animate">Payment Options</button>								
+								</form>
 							</div>
 						</div>
 						<!--/ End Button Widget -->
@@ -232,5 +252,7 @@
 	</section>
 
 	<script type="text/javascript" src="./function.js" ></script>
+    
+
 </body>
 </html>
