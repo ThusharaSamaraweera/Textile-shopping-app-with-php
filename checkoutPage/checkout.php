@@ -12,8 +12,24 @@
 	$_SESSION['tot'] = $tot;
 
 	if(isset($_REQUEST['submit'])){
+
 		$firstName = $_REQUEST['first-name'];
-		echo $firstName;
+		$lasttName = $_REQUEST['last-name'];
+		$email = $_REQUEST['email'];
+		$country = $_REQUEST['country_name'];
+		$number = $_REQUEST['phone-number'];
+		$state = $_REQUEST['state'];
+		$address1 = $_REQUEST['address1'];
+		$address2 = $_REQUEST['address2'];
+		$postel_code = $_REQUEST['postel_code'];
+		$_REQUEST['submit'] = null;
+
+		$_SESSION['order-customer-details'] = array($firstName, $lasttName, $email, $country, $number
+					, $state, $address1, $address2, $postel_code);
+		var_dump($_SESSION['order-customer-details']);
+
+		
+
 	}
 	
 ?>
@@ -136,19 +152,22 @@
 							</div>
 
 
-							<form class="needs-validation row form" method="post" action="#" novalidate>
+							<form class="needs-validation row form" method="post" action=<?php echo $_SERVER['PHP_SELF']; ?> 
+								novalidate id="checkoutForm">
 				
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>First Name<span>*</span></label>
-										<input type="text" name="name" placeholder="" id="first-name" required class="form-control">
+										<input type="text" name="first-name" placeholder="" id="first-name" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide first name</div>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Last Name<span>*</span></label>
-										<input type="text" name="name" placeholder="" id="last-name" required class="form-control">
+										<input type="text" name="last-name" placeholder="" id="last-name" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide last name</div>
 
 									</div>
@@ -156,7 +175,8 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Email Address<span>*</span></label>
-										<input type="email" name="email" placeholder="" id="email" required class="form-control">
+										<input type="email" name="email" placeholder="" id="email" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide email</div>
 
 									</div>
@@ -164,7 +184,8 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Phone Number<span>*</span></label>
-										<input type="number" name="number" placeholder="" id="phone-number" required class="form-control">
+										<input type="number" name="phone-number" placeholder="" id="phone-number" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide phone number</div>
 
 									</div>
@@ -172,7 +193,7 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group country-select">
 										<label>Country<span>*</span></label>
-										<select class="form-select" name="country_name" id="country">
+										<select class="form-select" name="country_name" id="country" form="checkoutForm">
 											<option value="AF">Afghanistan</option>
 											<option value="LK">Sri Lanka</option>
 											<option value="IN">India</option>
@@ -187,7 +208,8 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>State / Divition / Provice<span>*</span></label>
-										<input type="text" name="address" placeholder="" id="state" required class="form-control">
+										<input type="text" name="state" placeholder="" id="state" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide State / Divition / Provice</div>
 
 									</div>
@@ -195,7 +217,8 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Address Line 1<span>*</span></label>
-										<input type="text" name="address" placeholder="" id="address1" required class="form-control">
+										<input type="text" name="address1" placeholder="" id="address1" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide Address</div>
 
 									</div>
@@ -203,7 +226,8 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Address Line 2<span>*</span></label>
-										<input type="text" name="address" placeholder="" id="address2" required class="form-control">
+										<input type="text" name="address2" placeholder="" id="address2" 
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide Address</div>
 									
 									</div>
@@ -211,7 +235,8 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Postal Code<span>*</span></label>
-										<input type="text" name="post" placeholder="" id="postel_code"  required class="form-control">
+										<input type="text" name="postel_code" placeholder="" id="postel_code"  
+										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide Postal Code</div>
 
 									</div>
@@ -238,10 +263,11 @@
 						<!-- Button Widget -->
 						<div class="single-widget get-button">
 							<div class="content">
-								<form method="POST" id="checkoutForm" name="form" action=<?php echo $_SERVER['checkout.php']?> >
-									<input type="hidden" value="submit" name="submit">
-									<button type="submit" class="btn animate">Payment Options</button>								
-								</form>
+								<!-- <form method="POST" id="checkoutForm" name="checkoutForm" 
+								action=<?php echo $_SERVER['PHP_SELF']; ?> name="form"> -->
+									<input type="hidden" value="submit" name="submit" form="checkoutForm">
+									<button type="submit" class="btn animate" form="checkoutForm">Payment Options</button>								
+								<!-- </form> -->
 							</div>
 						</div>
 						<!--/ End Button Widget -->
