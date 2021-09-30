@@ -1,15 +1,12 @@
 <?php
 	session_start();
-	$id = 13;
+	$id = $_SESSION['user_id'];
 	require_once('./db.php');
 
-	$subTot = 330.00;
-	$shipping = $subTot*5/100;
-	$tot = $subTot + $shipping;
-
-	$_SESSION['subTot'] = $subTot;
-	$_SESSION['shipping'] = $shipping;
-	$_SESSION['tot'] = $tot;
+	$subTot = $_SESSION['sub_tot'];
+	$shipping = $_SESSION['shipping'];
+	$tot = $_SESSION['tot_payment'];
+	var_dump($_SESSION);
 
 	if(isset($_REQUEST['submit'])){
 
@@ -252,22 +249,21 @@
 							<h2>CART  TOTALS</h2>
 							<div class="content">
 								<ul>
-									<li>Sub Total<span>$ <?php echo $subTot ?></span></li>
-									<li>(+) Shipping<span>$ <?php echo $shipping ?></span></li>
-									<li class="last" id="total">Total<span >$ <?php echo $tot ?></span></li>
+									<li>Sub Total<span>RS. <?php echo $subTot ?></span></li>
+									<li>(+) Shipping<span>RS. <?php echo $shipping ?></span></li>
+									<li class="last" id="total">Total<span >RS. <?php echo $tot ?></span></li>
 								</ul>
 							</div>
 						</div>
 						<!--/ End Order Widget -->
 
 						<!-- Button Widget -->
+						
 						<div class="single-widget get-button">
 							<div class="content">
-								<!-- <form method="POST" id="checkoutForm" name="checkoutForm" 
-								action=<?php echo $_SERVER['PHP_SELF']; ?> name="form"> -->
-									<input type="hidden" value="submit" name="submit" form="checkoutForm">
-									<button type="submit" class="btn animate" form="checkoutForm">Payment Options</button>								
-								<!-- </form> -->
+
+								<input type="hidden" value="submit" name="submit" form="checkoutForm">
+								<button type="submit" class="btn animate" form="checkoutForm">Payment Options</button>								
 							</div>
 						</div>
 						<!--/ End Button Widget -->

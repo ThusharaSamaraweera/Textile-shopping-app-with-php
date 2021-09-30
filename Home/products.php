@@ -137,7 +137,7 @@
                         while ($row = $result->fetch_array()) { 
                             
                             $prices = unserialize($row['price']);
-                            $mediumPrice = $prices[0]['m'];
+                            $mediumPrice = $prices['m'];
                         ?>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 pb-2">

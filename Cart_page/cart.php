@@ -17,8 +17,9 @@
         echo $_REQUEST['orderID'];
         for($x = 0; $x<sizeof($items); $x++){
             if($items[$x][0] == $_REQUEST['orderID']){
-                \array_splice($items, $x, $x);
-                $tot_products = $tot_products - 1;
+
+                array_splice($items, $x, 1);
+                $tot_products = $tot_products - 1;    
                 break;
             }
 
@@ -221,9 +222,18 @@
                             <div class="col-lg-4 col-md-7 col-12">
                                 <div class="right">
                                     <ul>
-                                        <li>Cart Subtotal<span>Rs.<?php items_total_ammount($items) ?></span></li>
-                                        <li>Shipping<span>Rs.<?php shipping($items, $shipping_percent) ?></span></li>
-                                        <li class="last">You Pay<span>Rs.<?php payment($items, $shipping_percent) ?></span></li>
+                                        <li>Cart Subtotal<span>Rs.<?php echo items_total_ammount($items) ?></span></li>
+                                        <li>Shipping<span>Rs.<?php echo shipping($items, $shipping_percent) ?></span></li>
+                                        <li class="last">You Pay<span>Rs.
+                                            <?php echo payment($items, $shipping_percent)   ?>
+                                            </span>
+                                        </li>
+                                        <?php
+                                            $_SESSION['tot_payment'] = payment($items, $shipping_percent);
+                                            $_SESSION['sub_tot'] = items_total_ammount($items);
+                                            $_SESSION['shipping'] = shipping($items, $shipping_percent);
+
+                                        ?>
                                     </ul>
                                     <div class="button5">
                                         <a href="../checkoutPage/checkout.php" class="btn">Checkout</a>

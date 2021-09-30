@@ -33,14 +33,13 @@
 		while($row = $result->fetch_array()){
 			$email = $row['email'];
 			$hash  = $row['password'];
-      $user_type = $row['user_type'];
 
 			
 			if ( $lemail == $email and $verify = password_verify($lpassword, $hash)){
 				$user_name = $row['last_name'];
 				$id = $row['id'];
 				$flag = 1;
-        echo $user_type;
+        $user_type = $row['user_type'];
 
 			}
 		}
@@ -48,7 +47,7 @@
 		if($flag == 1){
 			session_start();
 			$_SESSION['user_name'] = $user_name;
-			$_SESSION['id'] = $id;
+			$_SESSION['user_id'] = $id;
 
       if($user_type == 'c'){
 
@@ -64,7 +63,7 @@
              <!-- A meta tag that redirects after 5 seconds-->
             <meta http-equiv="refresh" content="2;url=../Home/index.php">
             <?php
-      }else{
+      }else if($user_type == 'a'){
         ?>
         <script>
             Swal.fire({

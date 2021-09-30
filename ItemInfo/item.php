@@ -32,13 +32,13 @@
         $size = $_REQUEST['btnradio'];
 
         if($size == 'S'){
-            $unitPrice = $prices[0]['s'];
+            $unitPrice = $prices['s'];
         }
         if($size == 'M'){
-            $unitPrice = $prices[0]['m'];
+            $unitPrice = $prices['m'];
         }
         if($size == 'L'){
-            $unitPrice = $prices[0]['l'];
+            $unitPrice = $prices['l'];
         }
 
         $tot_products = $_SESSION['tot_products'] + 1;
@@ -117,7 +117,9 @@
                                 <h2><b><?php echo $row['name']?></b></h2>
                             </div>
                             <div class="row price">
-                                <h4>Rs. <?php echo $prices[0]['m']?></h4>
+                                <h5>Small - Rs. <?php echo $prices['s']?></h5>
+                                <h5>Medium - Rs. <?php echo $prices['m']?></h5>
+                                <h5>Large - Rs. <?php echo $prices['l']?></h5>
                             </div>
 
                             <div class="row paragraph">

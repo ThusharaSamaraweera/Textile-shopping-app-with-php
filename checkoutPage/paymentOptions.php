@@ -82,7 +82,7 @@ session_start();
                                                 return actions.order.create({
                                                     purchase_units: [{
                                                         amount: {
-                                                            value: <?php echo $_SESSION['tot']; ?>
+                                                            value: <?php echo ($_SESSION['tot'] / 200.00 ); ?>
                                                         }
                                                     }]
                                                 });
