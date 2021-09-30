@@ -26,11 +26,9 @@
 
 		$_SESSION['order-customer-details'] = array($firstName, $lasttName, $email, $country, $number
 					, $state, $address1, $address2, $postel_code);
-		var_dump($_SESSION['order-customer-details']);
-
-		
-
-	}
+		// var_dump($_SESSION['order-customer-details']);
+		header('Location:paymentOptions.php');
+	}	
 	
 ?>
 
@@ -80,6 +78,8 @@
 	
 </head>
 <body>
+	<?php include('../Header/header.php'); ?>
+	<?php include('../Home/navbar.php'); ?>
 	<section class="shop checkout section">
 		<div class="container">
 			<div class="row"> 
@@ -276,6 +276,7 @@
 			</div>
 		</div>
 	</section>
+	<?php include('../Home/footer.php'); ?>
 
 	<script type="text/javascript" src="./function.js" ></script>
     

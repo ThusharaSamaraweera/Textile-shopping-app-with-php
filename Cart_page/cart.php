@@ -11,14 +11,24 @@
     //     array("images/Men/Formal Shirt/5.1.webp", 3, "Blue bodyfit shirt", "M", 1750.00, 2),
     //     array("images/Men/Formal Shirt/5.1.webp", 4, "aBlue bodyfit shirt", "M", 1750.00, 2),
     // );
-    $items = $_SESSION['productsList'];
-    
     if(isset($_REQUEST['delete'])){
-        echo $_REQUEST['item_id'];
-        $item_id = $_REQUEST['item_id'];
-        unset($_SESSION['productsList'][$item_id]);
+        echo $_REQUEST['orderID'];
+        for($x = 0; $x<sizeof($items); $x++){
+            if($items[$x][0] == $_REQUEST['orderID']){
+                unset($items[$x]);
++
+                break;
+            }
+        
+        // var_dump($items);
 
+        }
+    }else{
+        $items = $_SESSION['productsList'];
     }
+    // $_SESSION['productsList'] = $items;
+    var_dump($items);
+
     
 ?>
 
@@ -115,7 +125,6 @@
                             for($i=0; $i<sizeof($items); $i++){
                                 $row_total = $items[$i][5]*$items[$i][6];
                                
-
                             ?>
                             <tr>
                                 <td class="image" data-title="No">
@@ -165,7 +174,7 @@
                                 <td class="action" data-title="Remove">
                                     <form id="cartForm" name="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?> >
                                         <input name="delete" type="hidden" value="delete">
-                                        <input name="item_id" type="hidden" value=<?php echo $items[$i][0]; ?>>
+                                        <input name="orderID" type="hidden" value=<?php echo $items[$i][0]; ?>>
                                         <button type="submit">
                                             <i class="ti-trash remove-icon"></i></a>
                                             
@@ -180,7 +189,7 @@
                                         <button type="submit">
                                             update
                                             <input name="update" type="hidden" value="update">
-                                            <input name="item_id" type="hidden" value=<?php echo $items[$i]; ?>>
+                                            <input name="orderID" type="hidden" value=<?php echo $i; ?>>
                                         </button>
                                     </form>
 
@@ -217,8 +226,8 @@
                                         <li class="last">You Pay<span>Rs.<?php payment($items, $shipping_percent) ?></span></li>
                                     </ul>
                                     <div class="button5">
-                                        <a href="#" class="btn">Checkout</a>
-                                        <a href="#" class="btn">Continue shopping</a>
+                                        <a href="../checkoutPage/checkout.php" class="btn">Checkout</a>
+                                        <a href="../Home/products.php" class="btn">Continue shopping</a>
                                     </div>
                                 </div>
                             </div>

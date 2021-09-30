@@ -1109,59 +1109,7 @@ Version:1.0
 .shop.single .product-des .size ul li a:hover{
 	color:#F7941D;
 }
-/* .shop.single .quantity {
-	display: inline-block;
-	margin-right: 10px;
-}
-.shop.single .quantity h6 {
-	display: inline-block;
-	margin-right: 10px;
-	font-size: 15px;
-	font-weight: 500;
-}
-.shop.single .quantity .input-group {
-	width: 151px;
-	display: inline-block;
-}
-.shop.single .quantity .button {
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	display:inline-block;
-}
-.shop.single .quantity .button.minus{
-	left:0;
-	border-radius:0;
-	overflow:hidden;
-}
-.shop.single .quantity .button.plus {
-	right: 0;
-	border-radius:0;
-	overflow:hidden;
-}
-.shop.single .quantity .button .btn {
-	padding: 0;
-	width: 35px;
-	height: 45px;
-	line-height: 45px;
-	border-radius: 0px;
-	background: transparent;
-	color: #282828;
-	font-size: 12px;
-	border: none;
-}
-.shop.single .quantity .button .btn:hover{
-	color:#F7941D;
-}
-.shop.single .quantity .input-number {
-	border: 1px solid #eceded;
-	width: 100%;
-	text-align: center;
-	height: 45px;
-	border-radius: 0px;
-	overflow: hidden;
-	padding: 0px 38px;
-} */
+
 .shop.single .add-to-cart {
 	display:inline-block;
 }

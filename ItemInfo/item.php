@@ -9,14 +9,14 @@
         $id = $_REQUEST['id'];
     }
 
-    // quanty
+    
     if(isset($_REQUEST['qty'])){
         $currentQty = $_REQUEST['qty'];
     }else{
         $currentQty = 1;
     }
 
-    // sql for getting item which has selected id
+    // sql for item which has selected id
     $sql = "SELECT name, category, description, price, qty, img1, img2, img3 FROM item_details WHERE item_id=$id";
 
     if($result = $link->query($sql)){

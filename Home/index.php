@@ -2,9 +2,12 @@
     session_start();
     include('./collectiontype.php');
 
-    $productsList = array();
-    $_SESSION['productsList'] = $productsList;
-    $_SESSION['tot_products'] = 0;
+    if(!($_SESSION['productList'])){
+        $productsList = array();
+        $_SESSION['productsList'] = $productsList;
+        $_SESSION['tot_products'] = 0;
+    }
+
 ?>  
 
 <!DOCTYPE html>

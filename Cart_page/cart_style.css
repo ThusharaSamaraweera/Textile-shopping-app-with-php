@@ -520,3 +520,8 @@
 /*======================================
    End Shop Services CSS
 ========================================*/
+
+
+.shopping-cart .table tbody tr .input-number .qtyInput::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+}

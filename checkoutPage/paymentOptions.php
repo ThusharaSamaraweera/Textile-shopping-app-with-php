@@ -49,7 +49,6 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
-                    <div class="col-lg-6 col-12">
 
                         <div class="order-details">
                             <!-- Order Widget -->
@@ -104,7 +103,6 @@ session_start();
                             </div>
                             <!--/ End Button Widget -->
                         </div>
-                    </div>
 
                 </div>
             </div>
