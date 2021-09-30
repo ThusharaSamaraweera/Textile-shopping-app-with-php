@@ -34,11 +34,14 @@
 			$email = $row['email'];
 			$hash  = $row['password'];
       $user_type = $row['user_type'];
+
 			
 			if ( $lemail == $email and $verify = password_verify($lpassword, $hash)){
 				$user_name = $row['last_name'];
 				$id = $row['id'];
 				$flag = 1;
+        echo $user_type;
+
 			}
 		}
 		
@@ -46,7 +49,9 @@
 			session_start();
 			$_SESSION['user_name'] = $user_name;
 			$_SESSION['id'] = $id;
+
       if($user_type == 'c'){
+
       ?>
              <script>
                  Swal.fire({

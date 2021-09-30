@@ -41,7 +41,7 @@
               <a class="nav-link px-4 text-warning" href="#"><b><i class="bi bi-person-circle mx-1"></i><?php echo $user;?></b></a>
             </li>
             <li class="nav-item" id=logout>
-                <a class="nav-link px-4 text-warning" href="logout.php"><b><i class="bi bi-box-arrow-left mx-1"></i>Log-out</b></a>
+                <a class="nav-link px-4 text-warning" href="../Home/logout.php"><b><i class="bi bi-box-arrow-left mx-1"></i>Log-out</b></a>
             </li>
             <?php
         }

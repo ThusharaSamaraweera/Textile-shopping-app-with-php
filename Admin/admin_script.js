@@ -16,11 +16,11 @@ btnOrders.addEventListener('click',() =>{
 });
 
 btnViewProducts.addEventListener('click',() =>{
-    document.getElementById('content').src = './admin_section_view_products/view_products.php';
+    document.getElementById('content').src = './admin_section_view_products/admin-productList/productList.php';
 });
 
 btnAddProducts.addEventListener('click',() =>{
-    document.getElementById('content').src = './admin_section_add_products/add_products.php';
+    document.getElementById('content').src = './admin_section_add_products/admin-addProducts/addProduct.php';
 });
 
 btnCategory.addEventListener('click',() =>{

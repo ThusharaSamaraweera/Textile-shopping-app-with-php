@@ -61,32 +61,40 @@
         <!--Buttons-->
         <div class="container-fluid mt-5">
 
+            
+
             <div class="row text-center" style="margin: 4em 0;">
                 <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>G E N T E L M E N &nbsp &nbsp C O L L E C T I O N</b></h3>
+
                 <div class="col">
-                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL SHIRTS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL TROUSERS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL TROUSERS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">SHORT</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">JEANS</button>
+                    <?php
+                        $categoriesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='men' ";
+                        $resultCategories= $link->query($categoriesSQL);
+                        while($oneCategory = $resultCategories->fetch_array()){
+                    ?>
+                        <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+
+                    <?php  
+                    }
+                    ?>
                 </div>
 
             </div>
 
             <div class="row text-center">
-                <div class="col">
                 <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>L A I D I E S' &nbsp &nbsp C O L L E C T I O N</b></h3>
-                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">FORMAL SHIRTS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">CASUAL TROUSERS</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Jumpsuits</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Croptops</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Casual Shirts</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Casual Trousers</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Formal Shirts</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Formal Trousers</button>
-                    <button type="button" class="btn btn-outline-dark mb-1">Short Trousers</button>
+
+                <div class="col">
+                    <?php
+                        $categoriesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='women' ";
+                        $resultCategories= $link->query($categoriesSQL);
+                        while($oneCategory = $resultCategories->fetch_array()){
+                    ?>
+                        <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+
+                    <?php  
+                    }
+                    ?>
                 </div>
 
             </div>
@@ -97,13 +105,22 @@
         <div class="container">
 
             <?php
+                //get collection
+                $collectionSQL = "SELECT DISTINCT collection FROM item_details";
+                $resultCollection = $link->query($collectionSQL);
+
+                while($collection = $resultCollection->fetch_array()){
+
+                $ICollection = $collection['collection'];
+                echo "<div class='collection-header'>$ICollection</div>";
+
                 // get gentelmen categories
-                $categoriesOfGentelmenSQL = "SELECT DISTINCT category FROM item_details";
-                $resultCategoriesOfGentelmen = $link->query($categoriesOfGentelmenSQL);
+                $categoriesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='$ICollection' ";
+                $resultCategories = $link->query($categoriesSQL);
                 
                 
-                while($gentelmanCategory = $resultCategoriesOfGentelmen->fetch_array()){
-                    $category = $gentelmanCategory['category'];
+                while($oneCategory = $resultCategories->fetch_array()){
+                    $category = $oneCategory['category'];
 
             ?>
 
@@ -114,7 +131,7 @@
                         <?php 
                         
                         // getting item from db
-                        $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='$category' ";
+                        $getProductsSql = "SELECT item_id,name, price, img1 FROM item_details WHERE category='$category' AND collection='$ICollection'";
                         $result = $link->query($getProductsSql);
 
                         while ($row = $result->fetch_array()) { 
@@ -143,6 +160,8 @@
                 <?php
 
                 }
+
+            }
 
                 ?>
 

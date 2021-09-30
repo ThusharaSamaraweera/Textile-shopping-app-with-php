@@ -45,7 +45,7 @@
         $_SESSION['tot_products'] = $tot_products;
 
         $itemArr = array($_SESSION['tot_products'],$row['img1'], $id, $row['name'], $size, $unitPrice, $currentQty);
-        // var_dump($itemArr);
+        var_dump($itemArr);
 
 
         array_push($_SESSION['productsList'], $itemArr);

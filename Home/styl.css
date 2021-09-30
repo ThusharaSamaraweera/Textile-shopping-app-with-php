@@ -69,6 +69,10 @@
     font-size: 1.2em;
 }
 
+.collection-header{
+    font-size: 2em;
+}
+
 
 
 @media screen and (max-width:992px){

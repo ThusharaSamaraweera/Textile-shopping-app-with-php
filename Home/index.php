@@ -2,7 +2,7 @@
     session_start();
     include('./collectiontype.php');
 
-    if(!($_SESSION['productList'])){
+    if( !($_SESSION['productsList'])){
         $productsList = array();
         $_SESSION['productsList'] = $productsList;
         $_SESSION['tot_products'] = 0;
@@ -101,14 +101,14 @@
 
                 <?php 
                     // get categoriese of gentelmen
-                    $categoriesOfGentelmenSQL = "SELECT DISTINCT category FROM item_details";
+                    $categoriesOfGentelmenSQL = "SELECT DISTINCT category FROM item_details WHERE collection='men'";
                     $resultCategoriesOfGentelmen = $link->query($categoriesOfGentelmenSQL);
 
                     while($gentelmanCategory = $resultCategoriesOfGentelmen->fetch_array()){
                         $category = $gentelmanCategory['category'];
 
                         // get randomly img of category 
-                        $categoryImgSQL = "SELECT img1 FROM item_details WHERE category='$category' ORDER by rand() LIMIT 1";
+                        $categoryImgSQL = "SELECT img1 FROM item_details WHERE category='$category' AND collection='men' ORDER by rand() LIMIT 1";
                         $resultCategoryImg = $link->query($categoryImgSQL);
                             $categoryImg = $resultCategoryImg->fetch_array();
                        

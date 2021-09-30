@@ -11,20 +11,20 @@
     //     array("images/Men/Formal Shirt/5.1.webp", 3, "Blue bodyfit shirt", "M", 1750.00, 2),
     //     array("images/Men/Formal Shirt/5.1.webp", 4, "aBlue bodyfit shirt", "M", 1750.00, 2),
     // );
+    $items = $_SESSION['productsList'];
+    $tot_products = $_SESSION['tot_products'];
     if(isset($_REQUEST['delete'])){
         echo $_REQUEST['orderID'];
         for($x = 0; $x<sizeof($items); $x++){
             if($items[$x][0] == $_REQUEST['orderID']){
-                unset($items[$x]);
-+
+                \array_splice($items, $x, $x);
+                $tot_products = $tot_products - 1;
                 break;
             }
-        
-        // var_dump($items);
 
         }
-    }else{
-        $items = $_SESSION['productsList'];
+        $_SESSION['productsList'] = $items;
+        $_SESSION['tot_products'] = $tot_products;
     }
     // $_SESSION['productsList'] = $items;
     var_dump($items);
@@ -142,12 +142,12 @@
                                 </td>
                                 <script>
                                     
-                                    function increaseQty(){
-                                        document.getElementById("qtyInput<?php echo $items[$i][0];?>").stepDown();
+                                    function increaseQty(_id){
+                                        document.getElementById('qtyInput'+_id).stepDown();
                                     }
 
-                                    function discreaseQty(){
-                                        document.getElementById('qtyInput<?php echo $items[$i][0];?>').stepUp();
+                                    function discreaseQty(_id){
+                                        document.getElementById('qtyInput'+_id).stepUp();
                                     }
                                 </script>
 
@@ -155,15 +155,15 @@
                                     <form  method="POST">
                                         <div class="qty">
                                             <i type="button" class="fa fa-minus-circle" aria-hidden="true"
-                                                onclick="increaseQty()" style="font-size: 1.5em;" 
+                                                onclick="increaseQty(<?php echo $items[$i][0];?>)" style="font-size: 1.5em;" 
                                             ></i>
                                             
-                                            <input class="qtyInput" id="qtyInput<?php echo $items[$i][0];?>" type="number" value=<?php echo $items[$i][6]?> min="1" max="10" 
-                                                style="width: 2em; text-align: center;"
+                                            <input class="qtyInput" id="qtyInput<?php echo $items[$i][0];?>" type="number" value=<?php echo $items[$i][6]?>
+                                             min="1" max="10" style="width: 3em; text-align: center;"
                                             >
                                             
                                             <i type="button" class="fa fa-plus-circle" aria-hidden="true"
-                                                onClick="discreaseQty()" style="font-size: 1.5em;" 
+                                                onClick="discreaseQty(<?php echo $items[$i][0];?>)" style="font-size: 1.5em;" 
                                             ></i>
                                         </div>            
                                     </form>
