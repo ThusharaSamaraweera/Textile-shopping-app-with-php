@@ -23,8 +23,10 @@
 
 		$_SESSION['order-customer-details'] = array($firstName, $lasttName, $email, $country, $number
 					, $state, $address1, $address2, $postel_code);
-		// var_dump($_SESSION['order-customer-details']);
+			
+		ob_start();
 		header('Location:paymentOptions.php');
+		ob_end_flush();
 	}	
 	
 ?>
@@ -181,7 +183,7 @@
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
 										<label>Phone Number<span>*</span></label>
-										<input type="number" name="phone-number" placeholder="" id="phone-number" 
+										<input type="tel" name="phone-number" placeholder="" id="phone-number" 
 										required class="form-control" form="checkoutForm">
 										<div class="invalid-feedback">Please provide phone number</div>
 

@@ -2,11 +2,13 @@
     session_start();
     include('./collectiontype.php');
 
-    if( !($_SESSION['productsList'])){
+    if( empty($_SESSION['productsList'])){
         $productsList = array();
         $_SESSION['productsList'] = $productsList;
         $_SESSION['tot_products'] = 0;
     }
+
+    // var_dump($_SESSION);
 
 ?>  
 
@@ -64,23 +66,39 @@
         <!--Ladies collection category-->
         <div class="container">
 
-            <div class="row my-5 align-items-center justify-content-center ">
+            <div class="row my-5 align-items-center justify-content-center">
 
-                <?php foreach ($ladies_collections as $collection) { ?>
+                <?php 
+                    // get categoriese of gentelmen
+                    $categoriesOfLaidiesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='women'";
+                    $resultCategoriesOfLaidies = $link->query($categoriesOfLaidiesSQL);
+
+                    while($LaidiesCategory = $resultCategoriesOfLaidies->fetch_array()){
+                        $category = $LaidiesCategory['category'];
+
+                        // get randomly img of category 
+                        $categoryImgSQL = "SELECT img1 FROM item_details WHERE category='$category' AND collection='women' ORDER by rand() LIMIT 1";
+                        $resultCategoryImg = $link->query($categoryImgSQL);
+                            $categoryImg = $resultCategoryImg->fetch_array();
+                       
+                        
+                ?>
 
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-3 pb-2 cat">
 
-                        <div class="card mx-auto d-block img-fluid" style="height: 100%; width:100%;">
-                            <img src=<?php echo $collection[1]; ?> class="card-img-top" alt="...">
+                        <div class="card mx-auto d-block img-fluid " style="height: 100%; width:100%;">
+                            <img src=<?php echo $categoryImg['img1']; ?> class="card-img-top" alt="image">
                             <div class="card-body text-center">
-                                <h5 class="card-title "><?php echo $collection[0]; ?></h5>
+                                <h5 class="card-title "><?php echo $LaidiesCategory['category']; ?></h5>
                                 <a href="#" class="btn btn-warning mt-2">Buy Now</a>
                             </div>
                         </div>
 
                     </div>
 
-                <?php } ?>
+                <?php 
+                    } 
+                ?>
 
             </div>
 

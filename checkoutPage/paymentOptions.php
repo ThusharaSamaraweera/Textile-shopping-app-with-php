@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +58,9 @@ session_start();
                                 <h2>CART TOTALS</h2>
                                 <div class="content">
                                     <ul>
-                                        <li>Sub Total<span>$ <?php echo $_SESSION['subTot'] ?></span></li>
+                                        <li>Sub Total<span>$ <?php echo $_SESSION['sub_tot'] ?></span></li>
                                         <li>(+) Shipping<span>$ <?php echo $_SESSION['shipping'] ?></span></li>
-                                        <li class="last" id="total">Total<span>$ <?php echo $_SESSION['tot'] ?></span></li>
+                                        <li class="last" id="total">Total<span>$ <?php echo $_SESSION['tot_payment'] ?></span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -89,7 +91,6 @@ session_start();
                                             },
                                             onApprove: function(data, actions) {
                                                 return actions.order.capture().then(function(details) {
-                                                    console.log(details)
                                                     window.location.replace("./success.php")
                                                 })
                                             },

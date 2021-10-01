@@ -45,14 +45,13 @@
         $_SESSION['tot_products'] = $tot_products;
 
         $itemArr = array($_SESSION['tot_products'],$row['img1'], $id, $row['name'], $size, $unitPrice, $currentQty);
-        var_dump($itemArr);
-
 
         array_push($_SESSION['productsList'], $itemArr);
-        // var_dump($_SESSION);
+        $btnradio = 1;
     }
     else{
-        $btnradioS = 0;
+        $btnradio = 0;
+        $msg = 'Please select size';
     }
 
 ?>
@@ -144,17 +143,13 @@
                                                 document.getElementById('qtyM').style.display = 'none';
                                             }
                                            
-
-
                                             if(<?php echo $qty[0]['l']?><1){
                                                 document.getElementById('qtyL').style.display = 'none';
                                             }
-
-
                                         }
 
                                     </script> 
-                                    <div id="qtyS"  role="group" class="btn-group">
+                                    <div id="qtyS">
                                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" 
                                             value="S" autocomplete="off" form="addToCard">
                                         <label class="btn btn-outline-primary" for="btnradio1" id="radio1" >S</label>                                                
@@ -171,6 +166,12 @@
                                                 value="L" autocomplete="off" form="addToCard">
                                         <label class="btn btn-outline-primary" for="btnradio3" id="radio3">L</label>                        
                                     </div>
+                                        <?php 
+                                        if($btnradio == 0){
+                                                          
+                                            echo "<div class='size-error' style='margin: 6px 20px; color:red'>$msg</div>";                                    
+                                        }   
+                                        ?>
 
                                 </div>
                             </div>
@@ -256,7 +257,7 @@
                             <div class="product-content">
                                 <h3><a href="../ItemInfo/item.php?id=<?php echo $itemId?>"><?php echo $item['name']?></a></h3>
                                 <div class="product-price">
-                                    <span>$<?php echo $prices[0]['m']?></span>
+                                    <span>$<?php echo $prices['m']?></span>
                                 </div>
                             </div>
                         </div>

@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cad75227-86ef-412f-8583-a1da6b52ff0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/admin_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_add_products/add_products.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/admin_section_add_products/add_products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_add_products/admin-addProduct/addProduct.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_add_products/admin-addProduct/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_user_details/admin-customerDetails/customerDetails.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_user_details/admin-customerDetails/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_user_details/user_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/admin_section_user_details/user_details.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_view_products/admin-productList/procuctList.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_view_products/admin-productList/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin_section_view_products/view_products.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/admin_section_view_products/view_products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cart_page/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/Cart_page/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Home/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Home/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/Home/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemInfo/ItemInfoStyle/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ItemInfo/ItemInfoStyle/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ItemInfo/item.php" beforeDir="false" afterPath="$PROJECT_DIR$/ItemInfo/item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Signup_Login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Signup_Login/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkoutPage/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutPage/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkoutPage/paymentOptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutPage/paymentOptions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkoutPage/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkoutPage/success.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

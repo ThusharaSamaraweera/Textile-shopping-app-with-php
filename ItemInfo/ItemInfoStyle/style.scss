@@ -33,7 +33,13 @@ body{
             }
     
             .details{
-                .sizes{
+                .price {
+                    h5 {
+                        font-size: 1em;
+                    }
+                }
+
+                .sizes {
                     .btn-group{
                         width: auto;
                         display: flex;
@@ -47,6 +53,11 @@ body{
                                 background-color: orange;
                                 color: black;
                             }
+                        }
+
+                        .size-error {
+                            margin: 6px 20px;
+                            color: red;
                         }
 
                     }
