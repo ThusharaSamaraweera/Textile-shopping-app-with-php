@@ -1,4 +1,8 @@
+<?php
+    session_start();
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +18,19 @@
 
 </head>
 <body>
-
-
-    <div class="site-title text-center">
-        <div><img src="./assets/checked.png" alt=""></div>
-        <h1 class="font-title">Payment Done Successfully...!</h1>
+    <div>
+        
     </div>
     <script>
     Swal.fire({
         icon: 'success',
-        title: 'Successfully logged in',
+        title: 'Payment Done Successfully...!',
         showConfirmButton: false,
         timer: 1500
-    })
+    });
 
     </script>
-
+    <meta http-equiv="refresh" content="1;url=../Home/index.php">
 
 </body>
 </html>

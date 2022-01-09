@@ -1,12 +1,12 @@
 <?php
 	session_start();
 	$id = $_SESSION['user_id'];
-	require_once('./db.php');
+	require_once('../connection/db.php');
 
 	$subTot = $_SESSION['sub_tot'];
 	$shipping = $_SESSION['shipping'];
 	$tot = $_SESSION['tot_payment'];
-	var_dump($_SESSION);
+
 
 	if(isset($_REQUEST['submit'])){
 
@@ -34,6 +34,8 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+	    <link rel="shortcut icon" href="../Home/Image/logo.png" />
+
 	<!-- Meta Tag -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,44 +43,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Title Tag  -->
-    <title>Eshop - eCommerce HTML5 Template.</title>
+	<title>Kingsmen Textile</title>
+
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
 	<!-- StyleSheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="./css/bootstrap.css">
-	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="./css/magnific-popup.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	
 	<!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.css">
-	<!-- Fancybox -->
-	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
-	<!-- Themify Icons -->
-    <link rel="stylesheet" href="./css/themify-icons.css">
-	<!-- Animate CSS -->
-    <link rel="stylesheet" href="./css/animate.css">
-	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="./css/flex-slider.min.css">
-	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="./css/owl-carousel.css">
-	<!-- Slicknav -->
-    <link rel="stylesheet" href="./css/slicknav.min.css">
 	
-	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./css/responsive.css">
 
-	
-	
 </head>
 <body>
 	<?php include('../Header/header.php'); ?>
 	<?php include('../Home/navbar.php'); ?>
+
 	<section class="shop checkout section">
 		<div class="container">
 			<div class="row"> 
@@ -87,8 +75,7 @@
 						<h2>Make Your Checkout Here</h2>
 						<p>Please register in order to checkout more quickly</p>
 						<!-- Form -->
-						
-							
+
 						<script>
 							// functions for radio button
 							function same(){
@@ -132,26 +119,28 @@
 							
 							};
 						</script>
-							<div class="row radio-btn">
-								<div class="col col-xs-12 col-sm-4 form-check">
-									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
-										 id="flexRadioDefault1" onclick="same()">
-									<label class="form-check-label" for="flexRadioDefault1">
-										Same as user address
-									</label>
-								</div>
 
-								<div class="col col-xs-12 col-sm-4 form-check">
-									<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
-									 id="flexRadioDefault2" value="change" onclick="change()" checked>
-									<label class="form-check-label" for="flexRadioDefault2">
-										Change shipping address
-									</label>
-								</div>
+				
+						<div class="row radio-btn">
+							<div class="col col-xs-12 col-sm-4 form-check">
+								<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
+										id="flexRadioDefault1" onclick="same()">
+								<label class="form-check-label" for="flexRadioDefault1">
+									Same as user address
+								</label>
 							</div>
 
+							<div class="col col-xs-12 col-sm-4 form-check">
+								<input class="form-check-radio-input" type="radio" name="flexRadioDefault"
+									id="flexRadioDefault2" value="change" onclick="change()" checked>
+								<label class="form-check-label" for="flexRadioDefault2">
+									Change shipping address
+								</label>
+							</div>
+						</div>
 
-							<form class="needs-validation row form" method="post" action=<?php echo $_SERVER['PHP_SELF']; ?> 
+
+						<form class="needs-validation row form" method="post" action=<?php echo $_SERVER['PHP_SELF']; ?> 
 								novalidate id="checkoutForm">
 				
 								<div class="col-lg-6 col-md-6 col-12">

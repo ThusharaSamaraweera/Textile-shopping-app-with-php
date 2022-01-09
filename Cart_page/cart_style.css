@@ -1,3 +1,24 @@
+.btn {
+	position: relative;
+	font-weight: 500;
+	font-size:14px;
+	color: #fff;
+	background: #333;
+	display: inline-block;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	z-index: 5;
+	display: inline-block;
+	padding: 13px 32px;
+	border-radius: 0px;
+	text-transform:uppercase;
+}
+.btn:hover{
+	color:#fff;
+	background:#F7941D;
+}
+
 /*======================================
    Start Shopping Cart CSS
 ========================================*/
@@ -73,6 +94,11 @@
 }
 .shopping-summery tbody .price {
 	text-align: center;
+}
+
+.shopping-cart tbody .qty{
+	display: inline-flex;
+	align-items: center;
 }
 .shopping-summery tbody .price span{}
 .shopping-cart tbody .qty .input-group {
@@ -248,6 +274,8 @@
 	font-size: 13px;
 	color: #fff;
 }
+
+
 /*======================================
    End Shopping Cart CSS
 ========================================*/
@@ -430,98 +458,3 @@
 	background:#F7941D;
 }
 
-/* Preloader */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999999999;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    overflow: hidden;
-  }
-  .preloader-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-  }
-  .preloader-icon {
-    width: 100px;
-    height: 100px;
-    display: inline-block;
-    padding: 0px;
-  }
-  .preloader-icon span {
-    position: absolute;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    background:#F7941D;
-    -webkit-animation: preloader-fx 1.6s linear infinite;
-    animation: preloader-fx 1.6s linear infinite;
-  }
-  .preloader-icon span:last-child {
-    animation-delay: -0.8s;
-    -webkit-animation-delay: -0.8s;
-  }
-  @keyframes preloader-fx {
-    0% {transform: scale(0, 0); opacity:0.5;}
-    100% {transform: scale(1, 1); opacity:0;}
-  }
-  @-webkit-keyframes preloader-fx {
-    0% {-webkit-transform: scale(0, 0); opacity:0.5;}
-    100% {-webkit-transform: scale(1, 1); opacity:0;}
-  }
-  /* End Preloader */
-
-  .shop-services.section {
-	padding: 80px 0 0px 0;
-	background: #fff;
-}
-.shop-services.home{
-	padding:60px 0;
-	background:#F6F7FB;
-}
-.shop-services .single-service {
-	position: relative;
-	padding-left: 65px;
-}
-.shop-services .single-service i {
-	height: 50px;
-	width: 50px;
-	line-height: 50px;
-	text-align: center;
-	color: #333;
-	background: transparent;
-	border-radius: 100%;
-	display: block;
-	font-size: 32px;
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-.shop-services .single-service h4 {
-	font-size: 14px;
-	font-weight: 600;
-	text-transform: uppercase;
-	line-height: 22px;
-	color: #333;
-}
-.shop-services .single-service p {
-	color: #898989;
-	line-height: 28px;
-	font-size:14px;
-}
-/*======================================
-   End Shop Services CSS
-========================================*/
-
-
-.shopping-cart .table tbody tr .input-number .qtyInput::-webkit-inner-spin-button{
-	-webkit-appearance: none;
-}

@@ -3,8 +3,6 @@
 	$id = $_SESSION['user_id'];
 	require_once('../connection/db.php');
 
-	var_dump($_SESSION);
-
 	if(isset($_REQUEST['submit'])){
 
 		$firstName = $_REQUEST['first-name'];
@@ -25,20 +23,35 @@
         $resultCheck  = $link->query($checkSQL);
         if($check = $resultCheck->fetch_array()){
             $updateDetailsSQL2 = "UPDATE customer_details SET phone_num = $number, country = '$country', 
-            state = '$state', address_line_1 = '$address1', address_line_2 = '$address1', postel_code = $postel_code WHERE sign_up_id=$id";
+            state = '$state', address_line_1 = '$address1', address_line_2 = '$address2', postel_code = $postel_code WHERE sign_up_id=$id";
             $resultUpdateDetails2 = mysqli_query($link, $updateDetailsSQL2);
 
 
         }else{
-            echo 'hi';
             $insertDetailsSQL = "INSERT INTO customer_details (sign_up_id, phone_num, country, state, address_line_1, address_line_2, postel_code) 
                         VALUES ($id, $number, '$country', '$state', '$address1', '$address2', $postel_code)";
-            if($resultInsertDetails = mysqli_query($link, $insertDetailsSQL)){
-                echo 'hi2';
-            }
-        }
+            $resultInsertDetails = mysqli_query($link, $insertDetailsSQL);
 
-		// header('Location:../Home/index.php');
+
+        }   
+        
+        ?>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type='text/JavaScript'>
+            Swal.fire({
+                icon: 'success',
+                title: 'Saved Details Successfully...!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+    
+        </script>
+
+        <meta http-equiv="refresh" content="2;url=../Home/index.php">     
+    <?php
+
+
 	}	
 	
 ?>
@@ -46,6 +59,8 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+    <link rel="shortcut icon" href="../Home/Image/logo.png" />
+
 	<!-- Meta Tag -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,7 +68,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Title Tag  -->
-    <title>Eshop - eCommerce HTML5 Template.</title>
+	<title>Kingsmen Textile</title>
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="">
 	<!-- Web Font -->
@@ -61,30 +76,20 @@
 	
 	<!-- StyleSheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 	
 	<!-- Bootstrap -->
-	<!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
-	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="../css/magnific-popup.min.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+
 	<!-- Font Awesome -->
     <link rel="stylesheet" href="../css/font-awesome.css">
-	<!-- Fancybox -->
-	<link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+
 	<!-- Themify Icons -->
     <link rel="stylesheet" href="../css/themify-icons.css">
-	<!-- Animate CSS -->
-    <link rel="stylesheet" href="../css/animate.css">
-	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="../css/flex-slider.min.css">
-	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="../css/owl-carousel.css">
-	<!-- Slicknav -->
-    <link rel="stylesheet" href="../css/slicknav.min.css">
+
 	
-	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="../checkoutPage/css/reset.css">
+	<!--  StyleSheet -->
 	<link rel="stylesheet" href="../checkoutPage/style.css">
-    <link rel="stylesheet" href="../checkoutPage/css/responsive.css">
 
 	
 	
@@ -99,7 +104,7 @@
                     <p>Please register in order to checkout more quickly</p>
                     <!-- Form -->                            
 
-                        <form class="needs-validation row form" method="post" action=<?php echo $_SERVER['PHP_SELF']; ?> 
+                        <form class=" row form" method="post" action=<?php echo $_SERVER['PHP_SELF']; ?> 
                             novalidate id="userDetailsForm">
             
                             <div class="col-lg-6 col-md-6 col-12">
@@ -123,7 +128,7 @@
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-group">
                                     <label>Phone Number<span>*</span></label>
-                                    <input type="number" name="phone-number" placeholder="" id="phone-number" 
+                                    <input type="tel" name="phone-number" placeholder="" id="phone-number" 
                                     required class="form-control" form="userDetailsForm">
                                     <div class="invalid-feedback">Please provide phone number</div>
 
@@ -132,9 +137,10 @@
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-group country-select">
                                     <label>Country<span>*</span></label>
-                                    <select class="form-select" name="country_name" id="country" form="userDetailsForm">
+                                    <select class="form-select" name="country_name" id="country" form="userDetailsForm"
+                                    >
                                         <option value="AF">Afghanistan</option>
-                                        <option value="LK">Sri Lanka</option>
+                                        <option value="LK" selected>Sri Lanka</option>
                                         <option value="IN">India</option>
                                         <option value="BD">Bangladesh</option>
                                         <option value="PK">Pakistan</option>

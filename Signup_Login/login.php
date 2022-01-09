@@ -10,7 +10,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Style-->
-<link rel="stylesheet" href="formStyle.css">
+  <link rel="stylesheet" href="formStyle.css">
   </head>
 
   <body>
@@ -61,7 +61,7 @@
                 })
              </script>
              <!-- A meta tag that redirects after 5 seconds-->
-            <meta http-equiv="refresh" content="2;url=../Home/index.php">
+            <meta http-equiv="refresh" content="5;url=../Home/index.php">
             <?php
       }else if($user_type == 'a'){
         ?>

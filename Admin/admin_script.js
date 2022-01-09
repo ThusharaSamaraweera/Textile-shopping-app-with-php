@@ -7,6 +7,8 @@ let btnUserDetails = document.querySelector('#user_details');
 let btnAddAdmin = document.querySelector('#add_admin');
 let content = document.querySelector('#content');
 
+
+
 btnDashbord.addEventListener('click',() =>{
     document.getElementById('content').src = './admin_section_dashboard/dashboard.php';
 });
@@ -16,11 +18,11 @@ btnOrders.addEventListener('click',() =>{
 });
 
 btnViewProducts.addEventListener('click',() =>{
-    document.getElementById('content').src = './admin_section_view_products/admin-productList/productList.php';
+    document.getElementById('content').src = 'admin_section_view_products/view_products.php';
 });
 
 btnAddProducts.addEventListener('click',() =>{
-    document.getElementById('content').src = './admin_section_add_products/admin-addProducts/addProduct.php';
+    document.getElementById('content').src = './admin_section_add_products/add_products.php';
 });
 
 btnCategory.addEventListener('click',() =>{

@@ -19,6 +19,7 @@ $category_loop = 0;
 </head>
 
 <body>
+<div class="container-md my-3">
     <div class="d-flex">
         <div class="container-fluid px-4">
             <div class="mx-2 my-2 bg-white py-3 px-3">
@@ -57,6 +58,7 @@ $category_loop = 0;
             </div>
         </div>
     </div>
+</div>
    
     <!-- /#page-content-wrapper -->
     

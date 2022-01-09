@@ -203,12 +203,6 @@
                                 </form>
                             </div>
                             
-                            <div class="row tags" >
-                                <h6>Tags</h6>
-                                <span class="badge rounded-pill bg-primary">$tags[0]</span>
-                                <span class="badge rounded-pill bg-primary">$tags[1]</span>
-                                <span class="badge rounded-pill bg-primary">$tags[2]</span>
-                            </div>
                         </div>
 
                     </div>
@@ -244,7 +238,7 @@
                     <div class="col col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="single-product" >
                             <div class="product-img">
-                                <a href="product-details.html">
+                                <a href="../ItemInfo/item.php?id=<?php echo $itemId?>">
                                     <img class="default-img" src="../Home<?php echo $item['img1']?>" alt="image" style="width: 20rem;">
                                     <img class="hover-img" src="../Home<?php echo $item['img3']?>" alt="image">
                                 </a>

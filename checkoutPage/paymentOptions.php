@@ -21,32 +21,22 @@ var_dump($_SESSION);
 	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="./css/bootstrap.css">
-	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="./css/magnific-popup.min.css">
+
 	<!-- Font Awesome -->
-    <link rel="stylesheet" href="./css/font-awesome.css">
-	<!-- Fancybox -->
-	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
-	<!-- Themify Icons -->
-    <link rel="stylesheet" href="./css/themify-icons.css">
-	<!-- Animate CSS -->
-    <link rel="stylesheet" href="./css/animate.css">
-	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="./css/flex-slider.min.css">
-	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="./css/owl-carousel.css">
-	<!-- Slicknav -->
-    <link rel="stylesheet" href="./css/slicknav.min.css">
+
 	
-	<!-- Eshop StyleSheet -->
+	<!-- StyleSheet -->
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./css/responsive.css">
+
 
 </head>
 
 <body>
-
+    <?php
+        include('../Header/header.php');
+        include('../Home/navbar.php');
+    ?>
     <section class="shop checkout section">
         <div class="container">
             <div class="row">
@@ -72,7 +62,7 @@ var_dump($_SESSION);
                                     <div id="paypal-payment-button">
 
                                     </div>
-                                    <script src="https://www.paypal.com/sdk/js?client-id=AU0F_FjwxSmwHcD4od1wbRIN23Ep-npNbs7tx-trMzBizw8SnNpyKU82Gw_EXU6N0OWsLpJcirYdwBAq"></script>
+                                    <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
 
                                     <script>
                                         paypal.Buttons({
@@ -104,11 +94,17 @@ var_dump($_SESSION);
                             </div>
                             <!--/ End Button Widget -->
                         </div>
-
+                            
                 </div>
             </div>
         </div>
     </section>
+
+
+    <?php
+        include('../Home/footer.php');
+    ?>
+
 </body>
 
 </html>

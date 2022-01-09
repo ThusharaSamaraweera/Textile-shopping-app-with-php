@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include('./collectiontype.php');
 
     if( empty($_SESSION['productsList'])){
         $productsList = array();
@@ -8,7 +7,6 @@
         $_SESSION['tot_products'] = 0;
     }
 
-    // var_dump($_SESSION);
 
 ?>  
 
@@ -16,7 +14,7 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" href="./Image/logo.png" />
+    <link rel="shortcut icon" href="../Home/Image/logo.png" />
     <title>Kingsmen Textile</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +34,7 @@
 </head>
 
 <body>
+    
     <div>
         <?php
         include("../Header/header.php");     
@@ -90,7 +89,7 @@
                             <img src=<?php echo $categoryImg['img1']; ?> class="card-img-top" alt="image">
                             <div class="card-body text-center">
                                 <h5 class="card-title "><?php echo $LaidiesCategory['category']; ?></h5>
-                                <a href="#" class="btn btn-warning mt-2">Buy Now</a>
+                                <a href="../Home/products.php" class="btn btn-warning mt-2">Buy Now</a>
                             </div>
                         </div>
 
@@ -130,7 +129,7 @@
                         $resultCategoryImg = $link->query($categoryImgSQL);
                             $categoryImg = $resultCategoryImg->fetch_array();
                        
-                        
+    
                 ?>
 
                     <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-3 pb-2 cat">
@@ -139,7 +138,7 @@
                             <img src=<?php echo $categoryImg['img1']; ?> class="card-img-top" alt="image">
                             <div class="card-body text-center">
                                 <h5 class="card-title "><?php echo $gentelmanCategory['category']; ?></h5>
-                                <a href="#" class="btn btn-warning mt-2">Buy Now</a>
+                                <a href="../Home/products.php" class="btn btn-warning mt-2">Buy Now</a>
                             </div>
                         </div>
 
