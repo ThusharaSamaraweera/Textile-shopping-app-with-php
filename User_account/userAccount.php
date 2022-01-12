@@ -86,21 +86,47 @@
 
 	<!-- Themify Icons -->
     <link rel="stylesheet" href="../css/themify-icons.css">
-
 	
 	<!--  StyleSheet -->
-	<link rel="stylesheet" href="../checkoutPage/style.css">
-
-	
+	<link rel="stylesheet" href="../checkoutPage/style.css?v=<?php echo time(); ?>" type="text/css">	
 	
 </head>
-<body>
+<body onload="fillForm()">
 	<?php include('../Header/header.php'); ?>
 	<?php include('../Home/navbar.php'); ?>
 	<section class="shop checkout section">
 		<div class="container">
 			<div class="row"> 
                 <div class="checkout-form">
+                    <script>
+                        function fillForm(){
+                            <?php
+
+                                $getCustomerDetailssql1 = "SELECT first_name, last_name FROM customer WHERE id=$id";
+                                $resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
+                                $customerDetails1 = $resultCustomerDetails1->fetch_array();
+
+                                $getCustomerDetailssql2 = "SELECT phone_num, country, country, state, address_line_1, address_line_2, postel_code FROM customer_details WHERE sign_up_id=$id";
+                                $resultCustomerDetails2 = $link->query($getCustomerDetailssql2);
+                                $customerDetails2 = $resultCustomerDetails2->fetch_array();
+
+
+                                ?>
+
+                                // fill details
+                                document.getElementById('first-name').value = "<?php echo $customerDetails1['first_name']; ?>";
+                                document.getElementById('last-name').value = "<?php echo $customerDetails1['last_name']; ?>";
+                                document.getElementById('country_name').value = "<?php echo $customerDetails2['country']; ?>";
+                                document.getElementById('phone-number').value = "<?php echo $customerDetails2['phone_num']; ?>";
+                                document.getElementById('state').value = "<?php echo $customerDetails2['state']; ?>";
+                                document.getElementById('address1').value = "<?php echo $customerDetails2['address_line_1']; ?>";
+                                document.getElementById('address2').value = "<?php echo $customerDetails2['address_line_2']; ?>";
+                                document.getElementById('postel_code').value = "<?php echo $customerDetails2['postel_code']; ?>";
+
+                        }
+
+                    </script>
+
                     <p>Please register in order to checkout more quickly</p>
                     <!-- Form -->                            
 
@@ -137,7 +163,7 @@
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-group country-select">
                                     <label>Country<span>*</span></label>
-                                    <select class="form-select" name="country_name" id="country" form="userDetailsForm"
+                                    <select class="form-select" name="country_name" id="country_name" form="userDetailsForm"
                                     >
                                         <option value="AF">Afghanistan</option>
                                         <option value="LK" selected>Sri Lanka</option>
@@ -194,7 +220,7 @@
                 <div class="single-widget get-button">
                     <div class="content">
                             <input type="hidden" value="submit" name="submit" form="userDetailsForm">
-                            <button type="submit" class="btn animate" form="userDetailsForm">Save Changes</button>								
+                            <button type="submit" class="btn animate bg-dark text-white" form="userDetailsForm">Save Changes</button>								
                     </div>
                 </div>
 			</div>

@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +26,6 @@ var_dump($_SESSION);
 	<!-- StyleSheet -->
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./style.css">
-
-
 </head>
 
 <body>
@@ -59,12 +55,10 @@ var_dump($_SESSION);
                             <!-- Button Widget -->
                             <div class="single-widget get-button">
                                 <div class="content">
-                                    <div id="paypal-payment-button">
 
-                                    </div>
                                     <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
-
-                                    <script>
+                                    <script src="paypal.js"></script>
+                                    <!-- <script>
                                         paypal.Buttons({
                                             style: {
                                                 color: 'blue',
@@ -74,7 +68,7 @@ var_dump($_SESSION);
                                                 return actions.order.create({
                                                     purchase_units: [{
                                                         amount: {
-                                                            value: <?php echo ($_SESSION['tot'] / 200.00 ); ?>
+                                                            value: '<?php echo ($_SESSION['tot'] / 200.00 ); ?>'
                                                         }
                                                     }]
                                                 });
@@ -88,8 +82,10 @@ var_dump($_SESSION);
                                                 window.location.replace("./Oncancel.php")
                                             }
                                         }).render('#paypal-payment-button');
-                                    </script>
-
+                                    </script> -->
+                                    <div id="paypal-payment-button">
+                                        
+                                    </div>
                                 </div>
                             </div>
                             <!--/ End Button Widget -->

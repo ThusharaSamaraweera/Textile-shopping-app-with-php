@@ -85,7 +85,7 @@
 									$resultCustomerDetails1 = $link->query($getCustomerDetailssql1);
 									$customerDetails1 = $resultCustomerDetails1->fetch_array();
 
-									$getCustomerDetailssql2 = "SELECT phone_num, country, country, state, address_line_1, address_line_2, postel_code FROM customer_details WHERE id=$id";
+									$getCustomerDetailssql2 = "SELECT phone_num, country, country, state, address_line_1, address_line_2, postel_code FROM customer_details WHERE sign_up_id=$id";
 									$resultCustomerDetails2 = $link->query($getCustomerDetailssql2);
 									$customerDetails2 = $resultCustomerDetails2->fetch_array();
 

@@ -45,7 +45,7 @@
     font-size: 1.5em;
 }
 
-.colletion-topic{
+.category-topic{
     text-align: left;
     font-size: 2em;
     margin: 1em;
@@ -70,7 +70,29 @@
 }
 
 .collection-header{
-    font-size: 2em;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: crimson;
+    background-color: black;
+}
+
+.fixed-div {
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    width: 95px;
+    background-color: #ff5722;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: wheat;
+}
+
+.fixed-div:hover {
+    background-color: red;
 }
 
 
@@ -118,7 +140,7 @@
         font-size: 20px;
     }
 
-    .colletion-topic{
+    .category-topic{
         text-align: left;
         font-size: 1.5em;
         margin: 1em;

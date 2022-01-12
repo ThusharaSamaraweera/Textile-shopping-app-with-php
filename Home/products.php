@@ -20,13 +20,16 @@
     <!--fonts-->
     <link href='http://fonts.googleapis.com/css?family=Carattere:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/190828a61a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div>
         <?php
-        include("../Header/header.php");
-        include("../Home/navbar.php");
+            include("../Header/header.php");
+            include("../Home/navbar.php");
         ?>
 
         <!--slider-->
@@ -59,9 +62,7 @@
         <!--slider end-->
         
         <!--Buttons-->
-        <div class="container-fluid mt-5">
-
-            
+        <div class="container-fluid mt-5" id="categories-btns">            
 
             <div class="row text-center" style="margin: 4em 0;">
                 <h3 class="text-warning text-center" style="font-family:'Bitter', sans-serif !important;"><b>G E N T E L M E N &nbsp &nbsp C O L L E C T I O N</b></h3>
@@ -71,8 +72,13 @@
                         $categoriesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='men' ";
                         $resultCategories= $link->query($categoriesSQL);
                         while($oneCategory = $resultCategories->fetch_array()){
+                            $IoneCategory = $oneCategory['category'];
+
                     ?>
-                        <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+                        <a href=<?php echo "#".$IoneCategory ?>>
+                            <button type="button" class="btn btn-outline-dark mb-1"                                
+                            ><?php echo $IoneCategory ?></button>
+                        </a>
 
                     <?php  
                     }
@@ -89,9 +95,13 @@
                         $categoriesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='women' ";
                         $resultCategories= $link->query($categoriesSQL);
                         while($oneCategory = $resultCategories->fetch_array()){
-                    ?>
-                        <button type="button" class="btn btn-outline-dark mb-1">CASUAL SHIRTS</button>
+                            $IoneCategory = $oneCategory['category'];
 
+                    ?>
+                        <a href=<?php echo "#".$IoneCategory ?>>
+                            <button type="button" class="btn btn-outline-dark mb-1"                                
+                            ><?php echo $IoneCategory ?></button>
+                        </a>
                     <?php  
                     }
                     ?>
@@ -112,7 +122,7 @@
                 while($collection = $resultCollection->fetch_array()){
 
                 $ICollection = $collection['collection'];
-                echo "<div class='collection-header'>$ICollection</div>";
+                echo "<div class='collection-header mt-3'>$ICollection</div>";
 
                 // get gentelmen categories
                 $categoriesSQL = "SELECT DISTINCT category FROM item_details WHERE collection='$ICollection' ";
@@ -125,9 +135,9 @@
             ?>
 
 
-                    <div class="row my-5 align-items-center justify-content-center">
+                    <div class="row my-5 align-items-center justify-content-center" id=<?php echo $category ?> >
 
-                        <h1 class="colletion-topic"><?php echo $category ?></h1>
+                        <h1 class="category-topic"><?php echo $category ?></h1>
                         <?php 
                         
                         // getting item from db
@@ -167,8 +177,9 @@
 
         <!-- collection ends-->
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -280,13 +291,20 @@
         </div>
         <!-- Modal end -->
 
+        <a href="#categories-btns">
+            <div class="fixed-div re">
+                <i class="fa fa-chevron-circle-up" style="font-size: 1.5em;"></i>
+            </div>
+        </a>
 
-        <footer class="footer">
-            <?php
-            include("footer.php");
-            ?>
-        </footer>
+        
     </div>
+    <footer class="footer">
+        <?php
+            include("footer.php");
+        ?>
+    </footer>
+
     <!-- Latest compiled and minified javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 

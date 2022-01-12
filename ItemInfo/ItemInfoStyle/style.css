@@ -24,6 +24,14 @@ body .item-info-div .row .item-imgs .row .second-img-column .large-images {
   padding: 0 5px 5px 0;
 }
 
+body .item-info-div .row .details .title {
+  color: orange;
+}
+
+body .item-info-div .row .details .price h5 {
+  font-size: 0.9em;
+}
+
 body .item-info-div .row .details .sizes .btn-group {
   width: auto;
   display: -webkit-box;
@@ -40,6 +48,11 @@ body .item-info-div .row .details .sizes .btn-group .btn-outline-primary {
 body .item-info-div .row .details .sizes .btn-group .btn-outline-primary:hover {
   background-color: orange;
   color: black;
+}
+
+body .item-info-div .row .details .sizes .btn-group .size-error {
+  margin: 6px 20px;
+  color: red;
 }
 
 body .item-info-div .row .details .qty-and-add-to-card {

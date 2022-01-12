@@ -8,7 +8,6 @@
     $items = $_SESSION['productsList'];
     $tot_products = $_SESSION['tot_products'];
     if(isset($_REQUEST['delete'])){
-        echo $_REQUEST['orderID'];
         for($x = 0; $x<sizeof($items); $x++){
             if($items[$x][0] == $_REQUEST['orderID']){
 
@@ -53,7 +52,8 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.css">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
     <!-- Themify Icons -->
     <link rel="stylesheet" href="./css/themify-icons.css">
 
@@ -89,8 +89,8 @@
                                 <th class="text-center">UNIT PRICE</th>
                                 <th class="text-center">QUANTITY</th>
                                 <th class="text-center">TOTAL</th>
-                                <th class="text-center"><i class="ti-trash remove-icon"></i></th>
-                                <th class="text-center">update</th>
+                                <th class="text-center"><i class="ti-t-rash remove-icon"></i></th>
+                                <th class="text-center"></th>
                             </tr>
                         </thead>
                         <!--/ Cart body -->
@@ -102,7 +102,7 @@
                             ?>
                             <tr>
                                 <td class="image" data-title="No">
-                                <img src="../Home<?php echo $items[$i][1]?>" alt="#" style="width:100px; height:120px;">
+                                    <img src="../Home<?php echo $items[$i][1]?>" alt="#" style="width:100px; height:120px;">
                                 </td>
                                 
                                 <td class="product-des" data-title="Description">
@@ -125,7 +125,7 @@
                                             
                                             <input class="qtyInput" id="qtyInput<?php echo $items[$i][0];?>" type="number"
                                              value=<?php echo $items[$i][6]; ?>
-                                             min="1" max="10" style="width: 3em; text-align: center;"
+                                             min="1" max="10" style="width: 3em; text-align: center; margin: 3px"
                                             >
                                             
                                             <i type="button" class="fa fa-plus-circle" aria-hidden="true"
@@ -134,17 +134,21 @@
                                         </div>            
                                     </form>
                                 </td>
-
+                                <!-- <i class="fas fa-trash-alt"></i> -->
                                 <td class="total-amount" id="tot<?php echo $items[$i][0]; ?>" data-title="Total">
                                     Rs.<?php echo $row_total?>
                                 </td>
                                 
-                                <td class="action" data-title="Remove">
-                                    <form id="cartForm" name="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?> >
+                                <td class="remove" data-title="Remove".">
+                                    <form id="cartForm" name="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?> 
+                                        style="color: red; cursor: pointer; "
+                                    >
                                         <input name="delete" type="hidden" value="delete">
                                         <input name="orderID" type="hidden" value=<?php echo $items[$i][0]; ?>>
-                                        <button type="submit">
-                                            <i class="ti-trash remove-icon"></i></a>                                            
+                                        <button type="submit remove-btn">
+                                            <i type="button" class="fas fa-trash-alt remove-icon"  aria-hidden="true" 
+                                            style="font-size: 1.5em;"></i>
+                                                                                    
                                         </button>
                                     </form>
                                 </td>
