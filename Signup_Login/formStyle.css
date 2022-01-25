@@ -1,55 +1,58 @@
-#signupbtn{
-    background-color: #EC7A27;
+.card {
+	height: auto;
 }
-#loginbtn{
-    background-color: #EC7A27;
+#signupbtn {
+	background-color: #ec7a27;
+}
+#loginbtn {
+	background-color: #ec7a27;
 }
 #login {
-    margin-top: 15px;
+	margin-top: 15px;
 }
-.form-control{
-    margin-top: 5px;
+.form-control {
+	margin-top: 5px;
 }
 .form-group {
-    margin-top: 5px;
+	margin-top: 5px;
 }
-.form-group label{
-    text-align: right !important;
+.form-group label {
+	text-align: right !important;
 }
 @media screen and (max-width: 768px) {
-    .form-group label {
-        text-align: left !important;
-    }
+	.form-group label {
+		text-align: left !important;
+	}
 }
 
 .form-check {
-    margin-top: 5px;
+	margin-top: 5px;
 }
-#signup{
-    margin-top: 20px;
-    text-align: center;
+#signup {
+	margin-top: 20px;
+	text-align: center;
 }
 h2 {
-    text-align: center;
+	text-align: center;
 }
 .container {
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 #have-account {
-margin-top: 10px;
-text-align: center;
+	margin-top: 10px;
+	text-align: center;
 }
 .checkEmail {
-    color: red;
+	color: red;
 }
 .red-message {
-    color: red;
+	color: red;
 }
-span{
-width: 100%;
-display: flex;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 2px;
-align-items: center;
+span {
+	width: 100%;
+	display: flex;
+	font-weight: 500;
+	font-size: 12px;
+	letter-spacing: 2px;
+	align-items: center;
 }

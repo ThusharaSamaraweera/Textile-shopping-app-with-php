@@ -19,9 +19,6 @@ session_start();
 	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="./css/bootstrap.css">
-
-	<!-- Font Awesome -->
-
 	
 	<!-- StyleSheet -->
 	<link rel="stylesheet" href="./css/reset.css">
@@ -58,31 +55,7 @@ session_start();
 
                                     <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
                                     <script src="paypal.js"></script>
-                                    <!-- <script>
-                                        paypal.Buttons({
-                                            style: {
-                                                color: 'blue',
-                                                shape: 'pill'
-                                            },
-                                            createOrder: function(data, actions) {
-                                                return actions.order.create({
-                                                    purchase_units: [{
-                                                        amount: {
-                                                            value: '<?php echo ($_SESSION['tot'] / 200.00 ); ?>'
-                                                        }
-                                                    }]
-                                                });
-                                            },
-                                            onApprove: function(data, actions) {
-                                                return actions.order.capture().then(function(details) {
-                                                    window.location.replace("./success.php")
-                                                })
-                                            },
-                                            onCancel: function(data) {
-                                                window.location.replace("./Oncancel.php")
-                                            }
-                                        }).render('#paypal-payment-button');
-                                    </script> -->
+
                                     <div id="paypal-payment-button">
                                         
                                     </div>
